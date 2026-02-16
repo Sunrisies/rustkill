@@ -160,12 +160,12 @@ fn inner_calculate_serial(path: &Path, pb: &Arc<ProgressBar>) -> u64 {
     total
 }
 
-pub fn list_directory(path: &Path, args: &Cli) {
+pub fn list_directory(path: &Path, args: &Cli) -> Vec<FileEntry> {
     let entries = match fs::read_dir(path) {
         Ok(entries) => entries,
         Err(e) => {
             eprintln!("ls: cannot access '{}': {}", path.display(), e);
-            return;
+            return Vec::new();
         }
     };
     let mut files: Vec<String> = Vec::new();
@@ -288,6 +288,7 @@ pub fn list_directory(path: &Path, args: &Cli) {
     println!("└{:─^33}┘", "");
 
     scan_pb.finish_and_clear(); // 完成后清理进度条
+    entries // 返回收集到的条目
 }
 
 /// 交互式搜索函数，使用通道实时返回结果

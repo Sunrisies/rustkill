@@ -16,10 +16,13 @@ use ratatui::text::{Line, Span};
 use ratatui::widgets::{List, ListDirection, ListState};
 use ratatui::Frame;
 
+use crate::models::FileEntry;
+
 fn main() -> Result<(), anyhow::Error> {
     init_logger();
-    let _ = init_render();
 
+    // 存储扫描结果
+    let mut entries = Vec::new();
     let start_time = std::time::Instant::now();
     let args = Cli::parse();
     let path = Path::new(&args.dir);
@@ -32,7 +35,10 @@ fn main() -> Result<(), anyhow::Error> {
             println!("错误: 路径不是目录: {}", path.display());
         }
     } else if path.is_dir() {
-        list_directory(path, &args);
+        // list_directory(path, &args);
+        entries = list_directory(path, &args);
+        // 使用TUI显示结果
+        let _ = init_render(entries);
     } else {
         println!("{}", path.display());
     }
@@ -49,12 +55,12 @@ fn main() -> Result<(), anyhow::Error> {
     Ok(())
 }
 
-fn init_render() -> color_eyre::Result<()> {
+fn init_render(entries: Vec<FileEntry>) -> color_eyre::Result<()> {
     color_eyre::install()?;
 
     let mut list_state = ListState::default().with_selected(Some(0));
     ratatui::run(|terminal| loop {
-        terminal.draw(|frame| render(frame, &mut list_state))?;
+        terminal.draw(|frame| render(frame, &mut list_state, &entries))?;
         if let event::Event::Key(key) = event::read()? {
             // 仅处理按下事件
             if key.kind == event::KeyEventKind::Press {
@@ -71,7 +77,7 @@ fn init_render() -> color_eyre::Result<()> {
 }
 
 /// Render the UI with various lists.
-fn render(frame: &mut Frame, list_state: &mut ListState) {
+fn render(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) {
     let constraints = [
         Constraint::Length(1),
         Constraint::Fill(1),
@@ -86,14 +92,37 @@ fn render(frame: &mut Frame, list_state: &mut ListState) {
     ]);
     frame.render_widget(title.centered(), top);
 
-    render_list(frame, first, list_state);
+    render_list(frame, first, list_state, entries);
 }
 
 /// Render a list.
-pub fn render_list(frame: &mut Frame, area: Rect, list_state: &mut ListState) {
-    let items = [
-        "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9",
-    ];
+pub fn render_list(
+    frame: &mut Frame,
+    area: Rect,
+    list_state: &mut ListState,
+    entries: &[FileEntry],
+) {
+    let items: Vec<Line> = entries
+        .iter()
+        .map(|entry| {
+            Line::from(vec![
+                Span::styled(
+                    format!("{} ", entry.file_type),
+                    Style::default().fg(if entry.file_type == 'd' {
+                        Color::Blue
+                    } else {
+                        Color::White
+                    }),
+                ),
+                Span::styled(
+                    format!("{:<10} ", entry.size_display),
+                    Style::default().fg(Color::Green),
+                ),
+                Span::styled(entry.path.clone(), Style::default()),
+            ])
+        })
+        .collect();
+
     let list = List::new(items)
         .style(Color::White)
         .highlight_style(Modifier::REVERSED)
