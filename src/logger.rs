@@ -85,11 +85,11 @@ pub fn init_logger() {
         .unwrap();
 
     let config = Config::builder()
-        .appender(Appender::builder().build("stdout", Box::new(stdout)))
+        // .appender(Appender::builder().build("stdout", Box::new(stdout)))
         .appender(Appender::builder().build("file", Box::new(file_appender)))
         .build(
             Root::builder()
-                .appender("stdout")
+                // .appender("stdout")
                 .appender("file")
                 .build(LevelFilter::Info),
         )

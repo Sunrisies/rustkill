@@ -74,8 +74,13 @@ fn scan_directory_with_ui(path: &Path) -> color_eyre::Result<Vec<FileEntry>> {
     let path_clone = path.to_path_buf();
     thread::spawn(move || {
         // 调用实际的扫描函数
-        let entries = dir_listing::scan_directory_with_progress(&path_clone, &status_tx);
-
+        let entries = dir_listing::scan_directory_with_progress(
+            &path_clone,
+            &status_tx,
+            Some("node_modules"),
+        );
+        // 扫描结束
+        log::info!("扫描结束，数据是:{:?}", entries);
         // 发送结果
         let _ = result_tx.send(entries);
     });
@@ -138,7 +143,7 @@ fn render_scan_ui(frame: &mut Frame, status: &ScanStatus) {
             .as_ref(),
         )
         .split(frame.area());
-
+    log::info!("渲染UI:{:?}", status);
     // 标题
     let title = Paragraph::new("Directory Scanner")
         .block(Block::default().borders(Borders::ALL))
