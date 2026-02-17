@@ -1,3 +1,5 @@
+use crate::ScanStatus;
+
 use super::models::{Cli, FileEntry};
 use super::utils::{human_readable_size, progress_bar_init};
 use comfy_table::{Cell, ContentArrangement, Table};
@@ -206,7 +208,7 @@ pub fn list_directory(path: &Path, args: &Cli) -> Vec<FileEntry> {
                     &name,
                     &mut entries,
                 );
-                info!("其他的");
+                // info!("其他的");
                 continue;
             }
         } else {
@@ -244,7 +246,7 @@ pub fn list_directory(path: &Path, args: &Cli) -> Vec<FileEntry> {
                 }
             },
         };
-        info!("添加条目: {:?}", entry);
+        // info!("添加条目: {:?}", entry);
         entries.push(entry);
     }
 
@@ -555,4 +557,99 @@ fn get_canonical_path(path: &Path) -> String {
         }
         Err(_) => path.to_string_lossy().into_owned(),
     }
+}
+
+// 添加新的扫描函数，支持进度更新
+pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>) -> Vec<FileEntry> {
+    // 发送初始状态
+    let _ = status_tx.send(ScanStatus::Scanning {
+        current_path: path.display().to_string(),
+        progress: 0,
+    });
+
+    let entries = match fs::read_dir(path) {
+        Ok(entries) => entries,
+        Err(e) => {
+            eprintln!("ls: cannot access '{}': {}", path.display(), e);
+            return Vec::new();
+        }
+    };
+
+    let mut files: Vec<String> = Vec::new();
+
+    for entry in entries.flatten() {
+        let file_name = entry.file_name().to_string_lossy().to_string();
+        files.push(file_name);
+    }
+
+    files.sort();
+    let total_files = files.len();
+    let mut processed_files = 0;
+
+    let mut entries = Vec::new();
+    let name = String::from("node_modules");
+
+    for (_i, file) in files.iter().enumerate() {
+        let file_path = path.join(&file);
+
+        // 更新进度
+        processed_files += 1;
+        let progress = (processed_files as f64 / total_files as f64 * 100.0) as u16;
+        let _ = status_tx.send(ScanStatus::Scanning {
+            current_path: file_path.display().to_string(),
+            progress,
+        });
+
+        let metadata = match file_path.metadata() {
+            Ok(m) => m,
+            Err(e) => {
+                eprintln!("ls: cannot access '{}': {}", file_path.display(), e);
+                continue;
+            }
+        };
+
+        if metadata.is_dir() {
+            if !file.contains(&name) {
+                // 递归扫描子目录
+                let sub_entries = scan_directory_with_progress(&file_path, status_tx);
+                entries.extend(sub_entries);
+                continue;
+            }
+        } else {
+            // 处理文件
+            let (size_display, size_raw) = (human_readable_size(metadata.len()), metadata.len());
+            let entry = FileEntry {
+                file_type: if metadata.is_dir() { 'd' } else { '-' },
+                permissions: format!(
+                    "{}-{}-{}",
+                    if metadata.permissions().readonly() {
+                        "r"
+                    } else {
+                        " "
+                    },
+                    "w",
+                    "x"
+                ),
+                size_display,
+                size_raw,
+                path: match file_path.canonicalize() {
+                    Ok(canonical_path) => get_canonical_path(&canonical_path),
+                    Err(_e) => file_path.to_string_lossy().into_owned(),
+                },
+            };
+            info!("添加条目: {:?}", entry);
+            entries.push(entry);
+        }
+    }
+
+    // 计算总大小
+    let total_size: u64 = entries.iter().map(|e| e.size_raw).sum();
+
+    // 发送完成状态
+    let _ = status_tx.send(ScanStatus::Completed {
+        total_files: entries.len(),
+        total_size: human_readable_size(total_size),
+    });
+
+    entries
 }
