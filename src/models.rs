@@ -97,15 +97,6 @@ pub struct Cli {
     /// 递归删除子目录中的匹配项
     #[arg(short = 'r', long = "recursive", help = "递归删除子目录中的匹配项")]
     pub recursive: bool,
-
-    /// 交互式搜索并显示结果
-    #[arg(
-        short = 's',
-        long = "search",
-        value_name = "PATTERN",
-        help = "交互式搜索并显示结果"
-    )]
-    pub search: Option<String>,
 }
 
 #[derive(Debug)]

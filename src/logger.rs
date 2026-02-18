@@ -63,7 +63,7 @@ impl log4rs::encode::Encode for ColorEncoder {
 }
 
 pub fn init_logger() {
-    let stdout = ConsoleAppender::builder()
+    let _stdout = ConsoleAppender::builder()
         .encoder(Box::new(PatternEncoder::new(
             "{l} - {d(%Y-%m-%d %H:%M:%S)} - {m}{n}",
         )))

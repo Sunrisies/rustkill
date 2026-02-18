@@ -1,23 +1,16 @@
 use crate::ScanStatus;
 
-use super::models::{Cli, FileEntry};
+use super::models::FileEntry;
 use super::utils::{human_readable_size, progress_bar_init};
 use comfy_table::{Cell, ContentArrangement, Table};
-use crossterm::{
-    event::{self, Event, KeyCode, KeyEvent, KeyModifiers},
-    execute,
-    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
-};
+
 use indicatif::ProgressBar;
 use log::info;
 use rayon::prelude::*;
 use std::fs;
-use std::io::stdout;
 use std::path::{Path, PathBuf};
-use std::sync::mpsc::{channel, Receiver, Sender};
+use std::sync::mpsc::Sender;
 use std::sync::Arc;
-use std::thread;
-use std::time::Duration;
 
 pub fn calculate_dir_size(
     path: &Path,
@@ -162,7 +155,7 @@ fn inner_calculate_serial(path: &Path, pb: &Arc<ProgressBar>) -> u64 {
     total
 }
 
-pub fn list_directory(path: &Path, args: &Cli) -> Vec<FileEntry> {
+pub fn list_directory(path: &Path) -> Vec<FileEntry> {
     let entries = match fs::read_dir(path) {
         Ok(entries) => entries,
         Err(e) => {
@@ -293,191 +286,6 @@ pub fn list_directory(path: &Path, args: &Cli) -> Vec<FileEntry> {
     entries // 返回收集到的条目
 }
 
-/// 交互式搜索函数，使用通道实时返回结果
-pub fn search_directory_interactive(path: &Path, pattern: &str) -> Receiver<FileEntry> {
-    let (tx, rx) = channel();
-    let pattern = pattern.to_string();
-    let path = path.to_path_buf();
-
-    thread::spawn(move || {
-        search_directory_recursive(&path, &pattern, &tx);
-    });
-
-    rx
-}
-
-/// 交互式搜索并显示结果，支持按键控制
-pub fn search_and_display_interactive(path: &Path, pattern: &str) -> Result<(), anyhow::Error> {
-    // 进入终端原始模式
-    enable_raw_mode()?;
-    execute!(stdout(), EnterAlternateScreen)?;
-
-    // 获取搜索结果通道
-    let rx = search_directory_interactive(path, pattern);
-
-    // 显示提示信息
-    println!("搜索模式: {}", pattern);
-    println!("按 Enter 继续显示下一页，按 q 退出");
-    println!("按 Ctrl+C 强制退出");
-    println!();
-
-    let mut page_size = 20; // 每页显示20条
-    let mut current_page = 0;
-    let mut entries = Vec::new();
-
-    // 收集所有结果（为了分页显示）
-    for entry in rx {
-        entries.push(entry);
-    }
-
-    // 分页显示
-    let total_pages = (entries.len() + page_size - 1) / page_size;
-
-    loop {
-        // 清屏并显示当前页
-        execute!(
-            stdout(),
-            crossterm::terminal::Clear(crossterm::terminal::ClearType::All)
-        )?;
-        execute!(stdout(), crossterm::cursor::MoveTo(0, 0))?;
-
-        println!("搜索模式: {}", pattern);
-        println!("按 Enter 继续显示下一页，按 q 退出");
-        println!("按 Ctrl+C 强制退出");
-        println!(
-            "结果总数: {} | 当前页: {}/{}",
-            entries.len(),
-            current_page + 1,
-            total_pages
-        );
-        println!();
-
-        // 显示当前页的条目
-        let start = current_page * page_size;
-        let end = std::cmp::min(start + page_size, entries.len());
-
-        if start >= entries.len() {
-            println!("已显示所有结果");
-        } else {
-            for entry in &entries[start..end] {
-                println!(
-                    "{} {} {} {}",
-                    entry.file_type, entry.permissions, entry.size_display, entry.path
-                );
-            }
-        }
-
-        println!();
-        println!("按 Enter 继续，按 q 退出...");
-
-        // 等待用户输入
-        loop {
-            if event::poll(Duration::from_millis(100))? {
-                if let Event::Key(key_event) = event::read()? {
-                    match key_event {
-                        KeyEvent {
-                            code: KeyCode::Char('q'),
-                            ..
-                        } => {
-                            // 退出
-                            disable_raw_mode()?;
-                            execute!(stdout(), LeaveAlternateScreen)?;
-                            return Ok(());
-                        }
-                        KeyEvent {
-                            code: KeyCode::Enter,
-                            ..
-                        } => {
-                            // 继续下一页
-                            if current_page + 1 < total_pages {
-                                current_page += 1;
-                            } else {
-                                // 已到最后一页，退出
-                                disable_raw_mode()?;
-                                execute!(stdout(), LeaveAlternateScreen)?;
-                                return Ok(());
-                            }
-                            break;
-                        }
-                        KeyEvent {
-                            code: KeyCode::Char('c'),
-                            modifiers: KeyModifiers::CONTROL,
-                            ..
-                        } => {
-                            // Ctrl+C 退出
-                            disable_raw_mode()?;
-                            execute!(stdout(), LeaveAlternateScreen)?;
-                            return Ok(());
-                        }
-                        _ => {}
-                    }
-                }
-            }
-        }
-    }
-}
-
-/// 递归搜索目录，通过通道发送结果
-fn search_directory_recursive(path: &Path, pattern: &str, tx: &Sender<FileEntry>) {
-    let entries = match fs::read_dir(path) {
-        Ok(entries) => entries,
-        Err(e) => {
-            eprintln!("无法读取目录 {}: {}", path.display(), e);
-            return;
-        }
-    };
-
-    for entry in entries.flatten() {
-        let file_name = entry.file_name().to_string_lossy().to_string();
-
-        // 检查是否匹配模式
-        if file_name.contains(pattern) {
-            let file_path = entry.path();
-            let metadata = match file_path.metadata() {
-                Ok(m) => m,
-                Err(e) => {
-                    eprintln!("无法获取元数据 {}: {}", file_path.display(), e);
-                    continue;
-                }
-            };
-
-            let (size_display, size_raw) = (human_readable_size(metadata.len()), metadata.len());
-            let entry = FileEntry {
-                file_type: if metadata.is_dir() { 'd' } else { '-' },
-                permissions: format!(
-                    "{}-{}-{}",
-                    if metadata.permissions().readonly() {
-                        "r"
-                    } else {
-                        " "
-                    },
-                    "w",
-                    "x"
-                ),
-                size_display,
-                size_raw,
-                path: match file_path.canonicalize() {
-                    Ok(canonical_path) => get_canonical_path(&canonical_path),
-                    Err(_e) => file_path.to_string_lossy().into_owned(),
-                },
-            };
-
-            // 发送结果到通道
-            if tx.send(entry).is_err() {
-                // 接收端已关闭
-                return;
-            }
-        }
-
-        // 如果是目录，递归搜索
-        if let Ok(metadata) = entry.metadata() {
-            if metadata.is_dir() {
-                search_directory_recursive(&entry.path(), pattern, tx);
-            }
-        }
-    }
-}
-
 // 搜索文件
 fn calculate_dir_size_parallel(
     file_path: PathBuf,
@@ -563,11 +371,7 @@ fn get_canonical_path(path: &Path) -> String {
 }
 
 // 添加新的扫描函数，支持进度更新
-pub fn scan_directory_with_progress(
-    path: &Path,
-    status_tx: &Sender<ScanStatus>,
-    target_name: Option<&str>,
-) -> Vec<FileEntry> {
+pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>) -> Vec<FileEntry> {
     // 发送初始状态
     let _ = status_tx.send(ScanStatus::Scanning {
         current_path: path.display().to_string(),

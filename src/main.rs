@@ -2,7 +2,7 @@ pub mod dir_listing;
 pub mod logger;
 pub mod models;
 pub mod utils;
-pub use dir_listing::{list_directory, search_and_display_interactive};
+pub use dir_listing::{list_directory, scan_directory_with_progress};
 
 use clap::Parser;
 use logger::init_logger;
@@ -15,7 +15,7 @@ use models::Cli;
 use ratatui::layout::{Alignment, Constraint, Direction, Layout, Rect};
 use ratatui::style::{Color, Modifier, Style, Stylize};
 use ratatui::text::{Line, Span};
-use ratatui::widgets::{Block, Borders, List, ListDirection, ListState, Paragraph, Wrap};
+use ratatui::widgets::{Block, Borders, List, ListState, Paragraph, Wrap};
 use ratatui::Frame;
 
 use crate::models::FileEntry;
@@ -24,18 +24,11 @@ fn main() -> Result<(), anyhow::Error> {
     init_logger();
 
     // 存储扫描结果
-    let start_time = std::time::Instant::now();
     let args = Cli::parse();
     let path = Path::new(&args.dir);
 
     // 检查是否启用了交互式搜索模式
-    if let Some(pattern) = &args.search {
-        if path.is_dir() {
-            search_and_display_interactive(path, pattern)?;
-        } else {
-            println!("错误: 路径不是目录: {}", path.display());
-        }
-    } else if path.is_dir() {
+    if path.is_dir() {
         // list_directory(path, &args);
         // entries = list_directory(path, &args);
         // 使用TUI显示结果
@@ -55,11 +48,10 @@ fn main() -> Result<(), anyhow::Error> {
 }
 // 定义扫描状态
 #[derive(Debug, Clone)]
-enum ScanStatus {
-    Scanning {
-        current_path: String,
-        progress: u16,
-    },
+pub enum ScanStatus {
+    /// 扫描中
+    Scanning { current_path: String, progress: u16 },
+    /// 扫描完成
     Completed {
         total_files: usize,
         total_size: String,
@@ -74,13 +66,9 @@ fn scan_directory_with_ui(path: &Path) -> color_eyre::Result<Vec<FileEntry>> {
     let path_clone = path.to_path_buf();
     thread::spawn(move || {
         // 调用实际的扫描函数
-        let entries = dir_listing::scan_directory_with_progress(
-            &path_clone,
-            &status_tx,
-            Some("node_modules"),
-        );
+        let entries = scan_directory_with_progress(&path_clone, &status_tx);
         // 扫描结束
-        log::info!("扫描结束，数据是:{:?}", entries);
+        log::info!("扫描结束，数据是:{:?},数据数量:{}", entries, entries.len());
         // 发送结果
         let _ = result_tx.send(entries);
     });
@@ -104,7 +92,7 @@ fn run_scan_ui(
         // 检查是否有新的状态更新
         if let Ok(status) = status_rx.try_recv() {
             current_status = status.clone();
-
+            log::info!("接收数据:{:?}", status);
             // 如果扫描完成，获取结果并退出
             if let ScanStatus::Completed { .. } = status {
                 if let Ok(entries) = result_rx.recv() {
@@ -161,55 +149,46 @@ fn render_scan_ui(frame: &mut Frame, status: &ScanStatus) {
             current_path,
             progress,
         } => {
-            // // 进度条
-            // let progress_bar = Paragraph::new(vec![
-            //     Span::raw("Progress: "),
-            //     Span::styled(format!("{}%", progress), Style::default().fg(Color::Green)),
-            // ])
             // 修改后
             let progress_bar = Paragraph::new(Line::from(vec![
-                Span::raw("Progress: "),
+                Span::raw("进度: "),
                 Span::styled(format!("{}%", progress), Style::default().fg(Color::Green)),
             ]))
-            .block(
-                Block::default()
-                    .borders(Borders::ALL)
-                    .title("Scan Progress"),
-            )
+            .block(Block::default().borders(Borders::ALL).title("扫描进度"))
             .alignment(Alignment::Center);
             frame.render_widget(progress_bar, chunks[1]);
 
             // 当前路径
             let path_text = Paragraph::new(current_path.as_str())
-                .block(Block::default().borders(Borders::ALL).title("Current Path"))
+                .block(Block::default().borders(Borders::ALL).title("当前路径"))
                 .wrap(Wrap { trim: true });
             frame.render_widget(path_text, chunks[2]);
         }
         ScanStatus::Completed {
-            total_files,
-            total_size,
+            total_files: _,
+            total_size: _,
         } => {
             // 完成之后
-            let completion_text = Paragraph::new(Line::from(vec![
-                Span::raw("Scan completed!"),
-                Span::styled(
-                    format!("\nTotal files: {}", total_files),
-                    Style::default().fg(Color::Green),
-                ),
-                Span::styled(
-                    format!("\nTotal size: {}", total_size),
-                    Style::default().fg(Color::Green),
-                ),
-            ]))
-            .block(Block::default().borders(Borders::ALL).title("Scan Results"))
-            .alignment(Alignment::Center);
-            frame.render_widget(completion_text, chunks[1]);
+            // let completion_text = Paragraph::new(Line::from(vec![
+            //     Span::raw("Scan completed!"),
+            //     Span::styled(
+            //         format!("\nTotal files: {}", total_files),
+            //         Style::default().fg(Color::Green),
+            //     ),
+            //     Span::styled(
+            //         format!("\nTotal size: {}", total_size),
+            //         Style::default().fg(Color::Green),
+            //     ),
+            // ]))
+            // .block(Block::default().borders(Borders::ALL).title("Scan Results"))
+            // .alignment(Alignment::Center);
+            // frame.render_widget(completion_text, chunks[1]);
 
-            // 提示信息
-            let hint_text = Paragraph::new("Press any key to continue...")
-                .block(Block::default().borders(Borders::ALL))
-                .alignment(Alignment::Center);
-            frame.render_widget(hint_text, chunks[2]);
+            // // 提示信息
+            // let hint_text = Paragraph::new("Press any key to continue...")
+            //     .block(Block::default().borders(Borders::ALL))
+            //     .alignment(Alignment::Center);
+            // frame.render_widget(hint_text, chunks[2]);
         }
     }
 }
@@ -243,7 +222,7 @@ fn render(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) 
         Constraint::Length(1),
     ];
     let layout = Layout::vertical(constraints).spacing(1);
-    let [top, first, second] = frame.area().layout(&layout);
+    let [top, first, _second] = frame.area().layout(&layout);
 
     let title = Line::from_iter([
         Span::from("List Widget").bold(),
