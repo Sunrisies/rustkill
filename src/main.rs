@@ -14,12 +14,13 @@ use std::time::{Duration, Instant};
 use crossterm::event::{self, KeyCode, KeyEventKind};
 use models::Cli;
 use ratatui::layout::{Alignment, Constraint, Direction, Layout, Rect};
-use ratatui::style::{Color, Modifier, Style, Stylize};
+use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::{Block, Borders, List, ListState, Paragraph, Wrap};
 use ratatui::Frame;
 
 use crate::models::FileEntry;
+use crate::utils::human_readable_size;
 
 fn main() -> Result<(), anyhow::Error> {
     init_logger();
@@ -30,13 +31,11 @@ fn main() -> Result<(), anyhow::Error> {
 
     // 检查是否启用了交互式搜索模式
     if path.is_dir() {
-        // list_directory(path, &args);
-        // entries = list_directory(path, &args);
         // 使用TUI显示结果
         match scan_directory_with_ui(path) {
             Ok(entries) => {
                 // 使用TUI显示结果
-                let _ = init_render(entries);
+                // let _ = init_render(entries);
             }
             Err(e) => {
                 eprintln!("扫描失败: {}", e);
@@ -89,6 +88,8 @@ fn run_scan_ui(
     status_rx: Receiver<ScanStatus>,
     result_rx: Receiver<Vec<FileEntry>>,
 ) -> color_eyre::Result<Vec<FileEntry>> {
+    color_eyre::install()?;
+
     let mut current_status = ScanStatus::Scanning {
         current_path: "初始化扫描...".to_string(),
         progress: 0,
@@ -140,7 +141,6 @@ fn run_scan_ui(
     })
 }
 // 渲染扫描UI
-// 渲染扫描UI
 fn render_scan_ui(frame: &mut Frame, status: &ScanStatus, frame_count: u64, start_time: Instant) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
@@ -159,7 +159,7 @@ fn render_scan_ui(frame: &mut Frame, status: &ScanStatus, frame_count: u64, star
         .split(frame.area());
 
     // 标题
-    let title = Paragraph::new("Directory Scanner")
+    let title = Paragraph::new("RustKill")
         .block(Block::default().borders(Borders::ALL))
         .style(
             Style::default()
@@ -260,8 +260,6 @@ fn render_scan_ui(frame: &mut Frame, status: &ScanStatus, frame_count: u64, star
 }
 
 fn init_render(entries: Vec<FileEntry>) -> color_eyre::Result<()> {
-    color_eyre::install()?;
-
     let mut list_state = ListState::default().with_selected(Some(0));
     ratatui::run(|terminal| loop {
         terminal.draw(|frame| render(frame, &mut list_state, &entries))?;
@@ -272,6 +270,15 @@ fn init_render(entries: Vec<FileEntry>) -> color_eyre::Result<()> {
                 match key.code {
                     KeyCode::Char('j') | KeyCode::Down => list_state.select_next(),
                     KeyCode::Char('k') | KeyCode::Up => list_state.select_previous(),
+                    KeyCode::Char(' ') => {
+                        // 空格键删除选中项
+                        if let Some(selected) = list_state.selected() {
+                            if selected < entries.len() {
+                                log::info!("删除选中项: {:?}", entries[selected].path);
+                                // 这里可以添加实际的删除逻辑
+                            }
+                        }
+                    }
                     KeyCode::Char('q') | KeyCode::Esc => break Ok(()),
                     _ => {}
                 }
@@ -282,23 +289,59 @@ fn init_render(entries: Vec<FileEntry>) -> color_eyre::Result<()> {
 
 /// Render the UI with various lists.
 fn render(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) {
-    let constraints = [
-        Constraint::Length(1),
-        Constraint::Fill(1),
-        Constraint::Length(1),
-    ];
-    let layout = Layout::vertical(constraints).spacing(1);
-    let [top, first, _second] = frame.area().layout(&layout);
+    // 计算总大小
+    let total_size: u64 = entries.iter().map(|e| e.size_raw).sum();
+    let total_size_display = human_readable_size(total_size);
 
-    let title = Line::from_iter([
-        Span::from("扫描结果").bold(),
-        Span::from(" (按 'q' 退出，方向键导航)"),
+    // 计算可释放空间（这里假设所有找到的node_modules都是可释放的）
+    let releasable_space = total_size_display.clone();
+    let space_saved = "0.00 GB".to_string();
+
+    // 模拟搜索时间（实际应该从扫描过程中获取）
+    let search_time = "3.82s".to_string();
+
+    // 顶部信息行
+    let top_info = Line::from(vec![
+        Span::styled("可释放空间: ", Style::default().fg(Color::White)),
+        Span::styled(releasable_space, Style::default().fg(Color::Green)),
+        Span::styled("  节省空间: ", Style::default().fg(Color::White)),
+        Span::styled(space_saved, Style::default().fg(Color::Green)),
+        Span::styled("  搜索已完成 ", Style::default().fg(Color::White)),
+        Span::styled(search_time, Style::default().fg(Color::Cyan)),
     ]);
-    frame.render_widget(title.centered(), top);
 
-    render_list(frame, first, list_state, entries);
+    // 操作提示行
+    let hint_line = Line::from(vec![Span::styled(
+        "光标选择 - 空格删除",
+        Style::default().fg(Color::Yellow),
+    )]);
+
+    // 列表区域
+    let constraints = [
+        Constraint::Length(1), // 顶部信息行
+        Constraint::Length(1), // 操作提示行
+        Constraint::Fill(1),   // 列表
+        Constraint::Length(1), // 版本号
+    ];
+    let layout = Layout::vertical(constraints).spacing(0);
+    let [top_area, hint_area, list_area, version_area] = frame.area().layout(&layout);
+
+    // 渲染顶部信息行
+    frame.render_widget(top_info, top_area);
+
+    // 渲染操作提示行
+    frame.render_widget(hint_line, hint_area);
+
+    // 渲染列表
+    render_list(frame, list_area, list_state, entries);
+
+    // 渲染版本号
+    let version_line = Line::from(vec![Span::styled(
+        "0.1.0",
+        Style::default().fg(Color::Gray),
+    )]);
+    frame.render_widget(version_line, version_area);
 }
-
 /// Render a list.
 pub fn render_list(
     frame: &mut Frame,
@@ -306,30 +349,39 @@ pub fn render_list(
     list_state: &mut ListState,
     entries: &[FileEntry],
 ) {
+    // 计算路径列的宽度
+    let max_path_len = entries.iter().map(|e| e.path.len()).max().unwrap_or(0);
+    let path_width = max_path_len.min(80); // 限制最大宽度为80
+
     let items: Vec<Line> = entries
         .iter()
         .map(|entry| {
+            // 假设每个条目都有最后修改时间（这里用占位符，实际应该从文件系统获取）
+            // 在实际应用中，应该从entry中获取last_modified字段
+            let last_modified = "28d"; // 占位符
+            let size = &entry.size_display;
+            let path = &entry.path;
+
             Line::from(vec![
+                // 路径
                 Span::styled(
-                    format!("{} ", entry.file_type),
-                    Style::default().fg(if entry.file_type == 'd' {
-                        Color::Blue
-                    } else {
-                        Color::White
-                    }),
+                    format!("{:<width$} ", path, width = path_width),
+                    Style::default().fg(Color::White),
                 ),
+                // 最后修改时间
                 Span::styled(
-                    format!("{:<10} ", entry.size_display),
+                    format!("{:<8} ", last_modified),
                     Style::default().fg(Color::Green),
                 ),
-                Span::styled(entry.path.clone(), Style::default()),
+                // 大小
+                Span::styled(format!("{:>10} ", size), Style::default().fg(Color::Cyan)),
             ])
         })
         .collect();
 
     let list = List::new(items)
         .style(Color::White)
-        .highlight_style(Modifier::REVERSED)
+        .highlight_style(Style::default().bg(Color::DarkGray).fg(Color::White))
         .highlight_symbol("> ");
 
     frame.render_stateful_widget(list, area, list_state);
