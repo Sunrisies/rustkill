@@ -9,6 +9,7 @@ use logger::init_logger;
 use std::path::Path;
 use std::sync::mpsc::{self, Receiver};
 use std::thread;
+use std::time::{Duration, Instant};
 
 use crossterm::event::{self, KeyCode, KeyEventKind};
 use models::Cli;
@@ -50,7 +51,12 @@ fn main() -> Result<(), anyhow::Error> {
 #[derive(Debug, Clone)]
 pub enum ScanStatus {
     /// 扫描中
-    Scanning { current_path: String, progress: u16 },
+    Scanning {
+        current_path: String,
+        progress: u16,
+        total_items: usize,
+        processed_items: usize,
+    },
     /// 扫描完成
     Completed {
         total_files: usize,
@@ -84,9 +90,17 @@ fn run_scan_ui(
     result_rx: Receiver<Vec<FileEntry>>,
 ) -> color_eyre::Result<Vec<FileEntry>> {
     let mut current_status = ScanStatus::Scanning {
-        current_path: "Initializing scan...".to_string(),
+        current_path: "初始化扫描...".to_string(),
         progress: 0,
+        total_items: 0,
+        processed_items: 0,
     };
+    // 动画帧计数器
+    let mut frame_count = 0;
+    let start_time = Instant::now();
+    let mut last_update_time = Instant::now();
+    let update_interval = Duration::from_millis(100); // 每100ms更新一次
+    let poll_timeout = Duration::from_millis(10); // 事件轮询超时时间
 
     ratatui::run(|terminal| loop {
         // 检查是否有新的状态更新
@@ -101,28 +115,40 @@ fn run_scan_ui(
             }
         }
 
+        let now = Instant::now();
         // 渲染UI
-        terminal.draw(|frame| render_scan_ui(frame, &current_status))?;
+        if now.duration_since(last_update_time) >= update_interval {
+            last_update_time = now;
+            frame_count += 1;
 
-        // 处理按键事件
-        if let event::Event::Key(key) = event::read()? {
-            if key.kind == KeyEventKind::Press {
-                match key.code {
-                    KeyCode::Char('q') | KeyCode::Esc => break Ok(Vec::new()),
-                    _ => {}
+            // 渲染UI
+            terminal
+                .draw(|frame| render_scan_ui(frame, &current_status, frame_count, start_time))?;
+        }
+
+        // 使用poll而不是read来检查按键事件，避免阻塞
+        if event::poll(poll_timeout)? {
+            if let event::Event::Key(key) = event::read()? {
+                if key.kind == KeyEventKind::Press {
+                    match key.code {
+                        KeyCode::Char('q') | KeyCode::Esc => break Ok(Vec::new()),
+                        _ => {}
+                    }
                 }
             }
         }
     })
 }
 // 渲染扫描UI
-fn render_scan_ui(frame: &mut Frame, status: &ScanStatus) {
+// 渲染扫描UI
+fn render_scan_ui(frame: &mut Frame, status: &ScanStatus, frame_count: u64, start_time: Instant) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .margin(1)
         .constraints(
             [
                 Constraint::Length(3), // 标题
+                Constraint::Length(3), // 动画
                 Constraint::Length(3), // 进度条
                 Constraint::Length(3), // 当前状态
                 Constraint::Length(3), // 统计信息
@@ -131,7 +157,7 @@ fn render_scan_ui(frame: &mut Frame, status: &ScanStatus) {
             .as_ref(),
         )
         .split(frame.area());
-    log::info!("渲染UI:{:?}", status);
+
     // 标题
     let title = Paragraph::new("Directory Scanner")
         .block(Block::default().borders(Borders::ALL))
@@ -143,52 +169,92 @@ fn render_scan_ui(frame: &mut Frame, status: &ScanStatus) {
         .alignment(Alignment::Center);
     frame.render_widget(title, chunks[0]);
 
+    // 旋转动画
+    let spinner_chars = ['-', '\\', '|', '/'];
+    let spinner_index = (frame_count / 2) as usize % spinner_chars.len();
+    let spinner_char = spinner_chars[spinner_index];
+
+    let elapsed = start_time.elapsed();
+    let duration_str = format!(
+        "{:02}:{:02}",
+        elapsed.as_secs() / 60,
+        elapsed.as_secs() % 60
+    );
+
+    let animation_text = Paragraph::new(Line::from(vec![
+        Span::styled(
+            format!("{} ", spinner_char),
+            Style::default().fg(Color::Yellow),
+        ),
+        Span::styled("扫描中...", Style::default().fg(Color::White)),
+        Span::styled(
+            format!(" [{}]", duration_str),
+            Style::default().fg(Color::Gray),
+        ),
+    ]))
+    .block(Block::default().borders(Borders::ALL).title("状态"))
+    .alignment(Alignment::Center);
+    frame.render_widget(animation_text, chunks[1]);
+
     // 根据状态渲染不同内容
     match status {
         ScanStatus::Scanning {
             current_path,
             progress,
+            total_items,
+            processed_items,
         } => {
-            // 修改后
+            // 进度条
             let progress_bar = Paragraph::new(Line::from(vec![
                 Span::raw("进度: "),
                 Span::styled(format!("{}%", progress), Style::default().fg(Color::Green)),
+                Span::raw(format!(" ({}/{})", processed_items, total_items)),
             ]))
             .block(Block::default().borders(Borders::ALL).title("扫描进度"))
             .alignment(Alignment::Center);
-            frame.render_widget(progress_bar, chunks[1]);
+            frame.render_widget(progress_bar, chunks[2]);
 
             // 当前路径
             let path_text = Paragraph::new(current_path.as_str())
                 .block(Block::default().borders(Borders::ALL).title("当前路径"))
                 .wrap(Wrap { trim: true });
-            frame.render_widget(path_text, chunks[2]);
+            frame.render_widget(path_text, chunks[3]);
         }
         ScanStatus::Completed {
             total_files: _,
             total_size: _,
         } => {
-            // 完成之后
-            // let completion_text = Paragraph::new(Line::from(vec![
-            //     Span::raw("Scan completed!"),
-            //     Span::styled(
-            //         format!("\nTotal files: {}", total_files),
-            //         Style::default().fg(Color::Green),
-            //     ),
-            //     Span::styled(
-            //         format!("\nTotal size: {}", total_size),
-            //         Style::default().fg(Color::Green),
-            //     ),
-            // ]))
-            // .block(Block::default().borders(Borders::ALL).title("Scan Results"))
-            // .alignment(Alignment::Center);
-            // frame.render_widget(completion_text, chunks[1]);
+            // 扫描完成时显示的提示
+            let completion_text = Paragraph::new(Line::from(vec![
+                Span::styled(
+                    "✓",
+                    Style::default()
+                        .fg(Color::Green)
+                        .add_modifier(Modifier::BOLD),
+                ),
+                Span::styled(" 扫描完成！", Style::default().fg(Color::Green)),
+                Span::styled(" 按任意键继续...", Style::default().fg(Color::Gray)),
+            ]))
+            .block(Block::default().borders(Borders::ALL).title("完成"))
+            .alignment(Alignment::Center);
+            frame.render_widget(completion_text, chunks[2]);
 
-            // // 提示信息
-            // let hint_text = Paragraph::new("Press any key to continue...")
-            //     .block(Block::default().borders(Borders::ALL))
-            //     .alignment(Alignment::Center);
-            // frame.render_widget(hint_text, chunks[2]);
+            // 显示统计信息
+            if let ScanStatus::Completed {
+                total_files,
+                total_size,
+            } = status
+            {
+                let stats_text = Paragraph::new(Line::from(vec![
+                    Span::styled("文件数: ", Style::default().fg(Color::White)),
+                    Span::styled(format!("{}", total_files), Style::default().fg(Color::Cyan)),
+                    Span::styled(" | 总大小: ", Style::default().fg(Color::White)),
+                    Span::styled(total_size.clone(), Style::default().fg(Color::Cyan)),
+                ]))
+                .block(Block::default().borders(Borders::ALL).title("统计"))
+                .alignment(Alignment::Center);
+                frame.render_widget(stats_text, chunks[3]);
+            }
         }
     }
 }
@@ -225,8 +291,8 @@ fn render(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) 
     let [top, first, _second] = frame.area().layout(&layout);
 
     let title = Line::from_iter([
-        Span::from("List Widget").bold(),
-        Span::from(" (Press 'q' to quit and arrow keys to navigate)"),
+        Span::from("扫描结果").bold(),
+        Span::from(" (按 'q' 退出，方向键导航)"),
     ]);
     frame.render_widget(title.centered(), top);
 

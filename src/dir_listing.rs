@@ -376,6 +376,8 @@ pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>)
     let _ = status_tx.send(ScanStatus::Scanning {
         current_path: path.display().to_string(),
         progress: 0,
+        total_items: 0,
+        processed_items: 0,
     });
 
     let entries = match fs::read_dir(path) {
@@ -409,8 +411,9 @@ pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>)
         let _ = status_tx.send(ScanStatus::Scanning {
             current_path: file_path.display().to_string(),
             progress,
+            total_items: total_files,
+            processed_items: processed_files,
         });
-
         // if name {
         let metadata = match file_path.metadata() {
             Ok(m) => m,
@@ -422,47 +425,13 @@ pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>)
         if metadata.is_dir() {
             // 如果是目录，是否跟要搜索的名称匹配
             if !file.contains(&name) {
-                calculate_dir_size_parallel_v2(file_path, true, &name, &mut entries);
+                calculate_dir_size_parallel_v2(file_path, true, &name, status_tx, &mut entries);
 
                 continue;
             }
         } else {
             continue;
         }
-        // }
-        let metadata = match file_path.metadata() {
-            Ok(m) => m,
-            Err(e) => {
-                eprintln!("ls: cannot access '{}': {}", file_path.display(), e);
-                continue;
-            }
-        };
-
-        let (size_display, size_raw) = (human_readable_size(metadata.len()), metadata.len());
-        let entry = FileEntry {
-            file_type: if metadata.is_dir() { 'd' } else { '-' },
-            permissions: format!(
-                "{}-{}-{}",
-                if metadata.permissions().readonly() {
-                    "r"
-                } else {
-                    " "
-                },
-                "w",
-                "x"
-            ),
-            size_display,
-            size_raw,
-            path: match file_path.canonicalize() {
-                Ok(canonical_path) => get_canonical_path(&canonical_path),
-                Err(_e) => {
-                    // eprintln!("获取绝对路径失败: {}", e);
-                    file_path.to_string_lossy().into_owned()
-                }
-            },
-        };
-        // info!("添加条目: {:?}", entry);
-        entries.push(entry);
     }
 
     // 计算总大小
@@ -482,6 +451,7 @@ fn calculate_dir_size_parallel_v2(
     file_path: PathBuf,
     human_readable: bool,
     name: &str,
+    status_tx: &Sender<ScanStatus>,
     entries: &mut Vec<FileEntry>,
 ) {
     let sub_entries = match fs::read_dir(&file_path) {
@@ -528,12 +498,19 @@ fn calculate_dir_size_parallel_v2(
                     "子目录: {:?},name:{:?},local_entries:{:?}",
                     sub_name, name, local_entries
                 );
+                let _ = status_tx.send(ScanStatus::Scanning {
+                    current_path: file_path.display().to_string(),
+                    progress: 100,
+                    total_items: 0,
+                    processed_items: 0,
+                });
             } else {
                 calculate_dir_size_parallel_v2(
                     sub_path,
                     human_readable,
                     // Arc::clone(&pb),
                     name,
+                    status_tx,
                     &mut local_entries,
                 );
                 // info!("进入");

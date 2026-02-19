@@ -1,91 +1,615 @@
-INFO - 2026-02-25 14:15:33 - Key pressed: Char('q')
-ERROR - 2026-02-25 14:15:35 - 文件: "admin"
-INFO - 2026-02-25 14:15:35 - 接收数据:Scanning { current_path: "D:\\project\\project\\node", progress: 0 }
-ERROR - 2026-02-25 14:15:35 - 文件: "csdn"
-ERROR - 2026-02-25 14:15:35 - 文件: "ezuikit"
-ERROR - 2026-02-25 14:15:35 - 文件: "m3u8"
-ERROR - 2026-02-25 14:15:35 - 文件: "my-app"
-ERROR - 2026-02-25 14:15:35 - 文件: "my-turborepo"
-ERROR - 2026-02-25 14:15:35 - 文件: "right-click"
-ERROR - 2026-02-25 14:15:35 - 文件: "script"
-ERROR - 2026-02-25 14:15:35 - 文件: "sunrise-MusicPlayer"
-ERROR - 2026-02-25 14:15:35 - 文件: "sunrise-ui"
-ERROR - 2026-02-25 14:15:35 - 文件: "upload"
-ERROR - 2026-02-25 14:15:35 - 文件: "vite-plugin-unused-images"
-INFO - 2026-02-25 14:15:35 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node", progress: 0 }
-INFO - 2026-02-25 14:15:35 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\admin", progress: 8 }
-INFO - 2026-02-25 14:15:35 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\admin", progress: 8 }
-INFO - 2026-02-25 14:15:35 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\csdn", progress: 16 }
-INFO - 2026-02-25 14:15:35 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\csdn", progress: 16 }
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }]
-INFO - 2026-02-25 14:15:35 - 扫描结束，数据是:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }],数据数量:21
-INFO - 2026-02-25 14:17:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\ezuikit", progress: 25 }
-INFO - 2026-02-25 14:17:22 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\ezuikit", progress: 25 }
-INFO - 2026-02-25 14:17:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\m3u8", progress: 33 }
-INFO - 2026-02-25 14:17:22 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\m3u8", progress: 33 }
-INFO - 2026-02-25 14:17:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-app", progress: 41 }
-INFO - 2026-02-25 14:17:22 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\my-app", progress: 41 }
-INFO - 2026-02-25 14:17:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo", progress: 50 }
-INFO - 2026-02-25 14:17:22 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo", progress: 50 }
-INFO - 2026-02-25 14:17:24 - Key pressed: Char('q')
-ERROR - 2026-02-25 14:22:51 - 文件: "admin"
-INFO - 2026-02-25 14:22:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\node", progress: 0 }
-ERROR - 2026-02-25 14:22:51 - 文件: "csdn"
-ERROR - 2026-02-25 14:22:51 - 文件: "ezuikit"
-ERROR - 2026-02-25 14:22:51 - 文件: "m3u8"
-ERROR - 2026-02-25 14:22:51 - 文件: "my-app"
-ERROR - 2026-02-25 14:22:51 - 文件: "my-turborepo"
-ERROR - 2026-02-25 14:22:51 - 文件: "right-click"
-ERROR - 2026-02-25 14:22:51 - 文件: "script"
-ERROR - 2026-02-25 14:22:51 - 文件: "sunrise-MusicPlayer"
-ERROR - 2026-02-25 14:22:51 - 文件: "sunrise-ui"
-ERROR - 2026-02-25 14:22:51 - 文件: "upload"
-ERROR - 2026-02-25 14:22:51 - 文件: "vite-plugin-unused-images"
-INFO - 2026-02-25 14:22:51 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node", progress: 0 }
-INFO - 2026-02-25 14:22:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\admin", progress: 8 }
-INFO - 2026-02-25 14:22:51 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\admin", progress: 8 }
-INFO - 2026-02-25 14:22:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\csdn", progress: 16 }
-INFO - 2026-02-25 14:22:51 - 渲染UI:Scanning { current_path: "D:\\project\\project\\node\\csdn", progress: 16 }
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }]
-INFO - 2026-02-25 14:22:51 - 扫描结束，数据是:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }],数据数量:21
-INFO - 2026-02-25 14:22:52 - Key pressed: Esc
+ERROR - 2026-02-25 15:00:10 - 文件: "MyApplication"
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\", progress: 0, total_items: 0, processed_items: 0 }
+ERROR - 2026-02-25 15:00:10 - 文件: "MyApplication2"
+ERROR - 2026-02-25 15:00:10 - 文件: "android"
+ERROR - 2026-02-25 15:00:10 - 文件: "app"
+ERROR - 2026-02-25 15:00:10 - 文件: "bun"
+ERROR - 2026-02-25 15:00:10 - 文件: "c"
+ERROR - 2026-02-25 15:00:10 - 文件: "cursor"
+ERROR - 2026-02-25 15:00:10 - 文件: "disk-sight"
+ERROR - 2026-02-25 15:00:10 - 文件: "dist"
+ERROR - 2026-02-25 15:00:10 - 文件: "docker"
+ERROR - 2026-02-25 15:00:10 - 文件: "esp8266"
+ERROR - 2026-02-25 15:00:10 - 文件: "flutter"
+ERROR - 2026-02-25 15:00:10 - 文件: "github"
+ERROR - 2026-02-25 15:00:10 - 文件: "go"
+ERROR - 2026-02-25 15:00:10 - 文件: "home"
+ERROR - 2026-02-25 15:00:10 - 文件: "html"
+ERROR - 2026-02-25 15:00:10 - 文件: "java"
+ERROR - 2026-02-25 15:00:10 - 文件: "lceda"
+ERROR - 2026-02-25 15:00:10 - 文件: "logs"
+ERROR - 2026-02-25 15:00:10 - 文件: "nginx"
+ERROR - 2026-02-25 15:00:10 - 文件: "node"
+ERROR - 2026-02-25 15:00:10 - 文件: "python"
+ERROR - 2026-02-25 15:00:10 - 文件: "rust"
+ERROR - 2026-02-25 15:00:10 - 文件: "tauri"
+ERROR - 2026-02-25 15:00:10 - 文件: "time"
+ERROR - 2026-02-25 15:00:10 - 文件: "trae"
+ERROR - 2026-02-25 15:00:10 - 文件: "video"
+ERROR - 2026-02-25 15:00:10 - 文件: "videos"
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication", progress: 3, total_items: 28, processed_items: 1 }
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication2", progress: 7, total_items: 28, processed_items: 2 }
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\android", progress: 10, total_items: 28, processed_items: 3 }
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\app", progress: 14, total_items: 28, processed_items: 4 }
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun", progress: 17, total_items: 28, processed_items: 5 }
+INFO - 2026-02-25 15:00:10 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "257.8MB", size_raw: 270316792, path: "D:\\project\\project\\bun\\react-cesium\\node_modules" }]
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun\\react-cesium", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:10 - 接收数据:Scanning { current_path: "D:\\project\\project\\c", progress: 21, total_items: 28, processed_items: 6 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor", progress: 25, total_items: 28, processed_items: 7 }
+INFO - 2026-02-25 15:00:11 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "189.4MB", size_raw: 198548526, path: "D:\\project\\project\\cursor\\test\\node_modules" }]
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor\\test", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\disk-sight", progress: 28, total_items: 28, processed_items: 8 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\dist", progress: 32, total_items: 28, processed_items: 9 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker", progress: 35, total_items: 28, processed_items: 10 }
+INFO - 2026-02-25 15:00:11 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "10.5MB", size_raw: 11003441, path: "D:\\project\\project\\docker\\n8n_data\\node_modules" }]
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker\\n8n_data", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\esp8266", progress: 39, total_items: 28, processed_items: 11 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\flutter", progress: 42, total_items: 28, processed_items: 12 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\github", progress: 46, total_items: 28, processed_items: 13 }
+INFO - 2026-02-25 15:00:11 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "0B", size_raw: 0, path: "D:\\project\\project\\github\\node_modules" }]
+INFO - 2026-02-25 15:00:11 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.0MB", size_raw: 2098669, path: "D:\\project\\project\\github\\API-Examples-Web\\node_modules" }]
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\github", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\API-Examples-Web", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\go", progress: 50, total_items: 28, processed_items: 14 }
+INFO - 2026-02-25 15:00:11 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.0MB", size_raw: 1067987, path: "D:\\project\\project\\go\\go-docs\\node_modules" }]
+INFO - 2026-02-25 15:00:11 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.9MB", size_raw: 63864169, path: "D:\\project\\project\\go\\go\\go-docs\\node_modules" }]
+INFO - 2026-02-25 15:00:11 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go-docs", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go\\go-docs", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\home", progress: 53, total_items: 28, processed_items: 15 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\html", progress: 57, total_items: 28, processed_items: 16 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\java", progress: 60, total_items: 28, processed_items: 17 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\lceda", progress: 64, total_items: 28, processed_items: 18 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\logs", progress: 67, total_items: 28, processed_items: 19 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\nginx", progress: 71, total_items: 28, processed_items: 20 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }]
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\node", progress: 75, total_items: 28, processed_items: 21 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\web", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:12 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }]
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }]
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\csdn", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:13 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:14 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }]
+INFO - 2026-02-25 15:00:14 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }]
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:14 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }]
+INFO - 2026-02-25 15:00:14 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }]
+INFO - 2026-02-25 15:00:14 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }]
+INFO - 2026-02-25 15:00:14 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }]
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\m3u8", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\right-click", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-app", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\python", progress: 78, total_items: 28, processed_items: 22 }
+INFO - 2026-02-25 15:00:14 - 接收数据:Scanning { current_path: "D:\\project\\project\\rust", progress: 82, total_items: 28, processed_items: 23 }
+INFO - 2026-02-25 15:00:16 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri", progress: 85, total_items: 28, processed_items: 24 }
+INFO - 2026-02-25 15:00:16 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "141.4MB", size_raw: 148287000, path: "D:\\project\\project\\tauri\\screen-capture-app\\node_modules" }]
+INFO - 2026-02-25 15:00:16 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\screen-capture-app", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "57.2MB", size_raw: 59951661, path: "D:\\project\\project\\tauri\\my\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "152.7MB", size_raw: 160163006, path: "D:\\project\\project\\tauri\\ffmpeg-processor\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "194.9MB", size_raw: 204397547, path: "D:\\project\\project\\tauri\\pasteboard\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "503.7MB", size_raw: 528137052, path: "D:\\project\\project\\tauri\\disk-sight\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "82.4MB", size_raw: 86409011, path: "D:\\project\\project\\tauri\\sunrse\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "142.4MB", size_raw: 149309896, path: "D:\\project\\project\\tauri\\tauri-mongodb-manager\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "133.6MB", size_raw: 140053518, path: "D:\\project\\project\\tauri\\sunrise-screenshot\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\my", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\ffmpeg-processor", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\pasteboard", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\disk-sight", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\sunrse", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\tauri-mongodb-manager", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\sunrise-screenshot", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\time", progress: 89, total_items: 28, processed_items: 25 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\trae", progress: 92, total_items: 28, processed_items: 26 }
+INFO - 2026-02-25 15:00:17 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "442.0MB", size_raw: 463469077, path: "D:\\project\\project\\videos\\app\\web\\node_modules" }]
+INFO - 2026-02-25 15:00:17 - 扫描结束，数据是:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "257.8MB", size_raw: 270316792, path: "D:\\project\\project\\bun\\react-cesium\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "189.4MB", size_raw: 198548526, path: "D:\\project\\project\\cursor\\test\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "10.5MB", size_raw: 11003441, path: "D:\\project\\project\\docker\\n8n_data\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.0MB", size_raw: 2098669, path: "D:\\project\\project\\github\\API-Examples-Web\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "0B", size_raw: 0, path: "D:\\project\\project\\github\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.9MB", size_raw: 63864169, path: "D:\\project\\project\\go\\go\\go-docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.0MB", size_raw: 1067987, path: "D:\\project\\project\\go\\go-docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "503.7MB", size_raw: 528137052, path: "D:\\project\\project\\tauri\\disk-sight\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "152.7MB", size_raw: 160163006, path: "D:\\project\\project\\tauri\\ffmpeg-processor\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "57.2MB", size_raw: 59951661, path: "D:\\project\\project\\tauri\\my\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "194.9MB", size_raw: 204397547, path: "D:\\project\\project\\tauri\\pasteboard\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "141.4MB", size_raw: 148287000, path: "D:\\project\\project\\tauri\\screen-capture-app\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "133.6MB", size_raw: 140053518, path: "D:\\project\\project\\tauri\\sunrise-screenshot\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "82.4MB", size_raw: 86409011, path: "D:\\project\\project\\tauri\\sunrse\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "142.4MB", size_raw: 149309896, path: "D:\\project\\project\\tauri\\tauri-mongodb-manager\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "442.0MB", size_raw: 463469077, path: "D:\\project\\project\\videos\\app\\web\\node_modules" }],数据数量:43
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\video", progress: 96, total_items: 28, processed_items: 27 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\videos", progress: 100, total_items: 28, processed_items: 28 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Scanning { current_path: "D:\\project\\project\\videos\\app\\web", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:17 - 接收数据:Completed { total_files: 43, total_size: "5.0GB" }
+INFO - 2026-02-25 15:00:20 - Key pressed: Char('q')
+ERROR - 2026-02-25 15:00:22 - 文件: "MyApplication"
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\", progress: 0, total_items: 0, processed_items: 0 }
+ERROR - 2026-02-25 15:00:22 - 文件: "MyApplication2"
+ERROR - 2026-02-25 15:00:22 - 文件: "android"
+ERROR - 2026-02-25 15:00:22 - 文件: "app"
+ERROR - 2026-02-25 15:00:22 - 文件: "bun"
+ERROR - 2026-02-25 15:00:22 - 文件: "c"
+ERROR - 2026-02-25 15:00:22 - 文件: "cursor"
+ERROR - 2026-02-25 15:00:22 - 文件: "disk-sight"
+ERROR - 2026-02-25 15:00:22 - 文件: "dist"
+ERROR - 2026-02-25 15:00:22 - 文件: "docker"
+ERROR - 2026-02-25 15:00:22 - 文件: "esp8266"
+ERROR - 2026-02-25 15:00:22 - 文件: "flutter"
+ERROR - 2026-02-25 15:00:22 - 文件: "github"
+ERROR - 2026-02-25 15:00:22 - 文件: "go"
+ERROR - 2026-02-25 15:00:22 - 文件: "home"
+ERROR - 2026-02-25 15:00:22 - 文件: "html"
+ERROR - 2026-02-25 15:00:22 - 文件: "java"
+ERROR - 2026-02-25 15:00:22 - 文件: "lceda"
+ERROR - 2026-02-25 15:00:22 - 文件: "logs"
+ERROR - 2026-02-25 15:00:22 - 文件: "nginx"
+ERROR - 2026-02-25 15:00:22 - 文件: "node"
+ERROR - 2026-02-25 15:00:22 - 文件: "python"
+ERROR - 2026-02-25 15:00:22 - 文件: "rust"
+ERROR - 2026-02-25 15:00:22 - 文件: "tauri"
+ERROR - 2026-02-25 15:00:22 - 文件: "time"
+ERROR - 2026-02-25 15:00:22 - 文件: "trae"
+ERROR - 2026-02-25 15:00:22 - 文件: "video"
+ERROR - 2026-02-25 15:00:22 - 文件: "videos"
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication", progress: 3, total_items: 28, processed_items: 1 }
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication2", progress: 7, total_items: 28, processed_items: 2 }
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\android", progress: 10, total_items: 28, processed_items: 3 }
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\app", progress: 14, total_items: 28, processed_items: 4 }
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun", progress: 17, total_items: 28, processed_items: 5 }
+INFO - 2026-02-25 15:00:22 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "257.8MB", size_raw: 270316792, path: "D:\\project\\project\\bun\\react-cesium\\node_modules" }]
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun\\react-cesium", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:22 - 接收数据:Scanning { current_path: "D:\\project\\project\\c", progress: 21, total_items: 28, processed_items: 6 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor", progress: 25, total_items: 28, processed_items: 7 }
+INFO - 2026-02-25 15:00:23 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "189.4MB", size_raw: 198548526, path: "D:\\project\\project\\cursor\\test\\node_modules" }]
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor\\test", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\disk-sight", progress: 28, total_items: 28, processed_items: 8 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\dist", progress: 32, total_items: 28, processed_items: 9 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker", progress: 35, total_items: 28, processed_items: 10 }
+INFO - 2026-02-25 15:00:23 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "10.5MB", size_raw: 11003441, path: "D:\\project\\project\\docker\\n8n_data\\node_modules" }]
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker\\n8n_data", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\esp8266", progress: 39, total_items: 28, processed_items: 11 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\flutter", progress: 42, total_items: 28, processed_items: 12 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\github", progress: 46, total_items: 28, processed_items: 13 }
+INFO - 2026-02-25 15:00:23 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "0B", size_raw: 0, path: "D:\\project\\project\\github\\node_modules" }]
+INFO - 2026-02-25 15:00:23 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.0MB", size_raw: 2098669, path: "D:\\project\\project\\github\\API-Examples-Web\\node_modules" }]
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\github", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:23 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.0MB", size_raw: 1067987, path: "D:\\project\\project\\go\\go-docs\\node_modules" }]
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\API-Examples-Web", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\go", progress: 50, total_items: 28, processed_items: 14 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go-docs", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:23 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.9MB", size_raw: 63864169, path: "D:\\project\\project\\go\\go\\go-docs\\node_modules" }]
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go\\go-docs", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\home", progress: 53, total_items: 28, processed_items: 15 }
+INFO - 2026-02-25 15:00:23 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }]
+INFO - 2026-02-25 15:00:23 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\html", progress: 57, total_items: 28, processed_items: 16 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\java", progress: 60, total_items: 28, processed_items: 17 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\lceda", progress: 64, total_items: 28, processed_items: 18 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\logs", progress: 67, total_items: 28, processed_items: 19 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\nginx", progress: 71, total_items: 28, processed_items: 20 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node", progress: 75, total_items: 28, processed_items: 21 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\web", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\csdn", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }]
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:24 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }]
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-app", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }]
+INFO - 2026-02-25 15:00:25 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }]
+INFO - 2026-02-25 15:00:25 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }]
+INFO - 2026-02-25 15:00:25 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }]
+INFO - 2026-02-25 15:00:25 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }]
+INFO - 2026-02-25 15:00:25 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }]
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\right-click", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\m3u8", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\python", progress: 78, total_items: 28, processed_items: 22 }
+INFO - 2026-02-25 15:00:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\rust", progress: 82, total_items: 28, processed_items: 23 }
+INFO - 2026-02-25 15:00:27 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri", progress: 85, total_items: 28, processed_items: 24 }
+INFO - 2026-02-25 15:00:27 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "57.2MB", size_raw: 59951661, path: "D:\\project\\project\\tauri\\my\\node_modules" }]
+INFO - 2026-02-25 15:00:27 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\my", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "142.4MB", size_raw: 149309896, path: "D:\\project\\project\\tauri\\tauri-mongodb-manager\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "503.7MB", size_raw: 528137052, path: "D:\\project\\project\\tauri\\disk-sight\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "194.9MB", size_raw: 204397547, path: "D:\\project\\project\\tauri\\pasteboard\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "82.4MB", size_raw: 86409011, path: "D:\\project\\project\\tauri\\sunrse\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "133.6MB", size_raw: 140053518, path: "D:\\project\\project\\tauri\\sunrise-screenshot\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "141.4MB", size_raw: 148287000, path: "D:\\project\\project\\tauri\\screen-capture-app\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "152.7MB", size_raw: 160163006, path: "D:\\project\\project\\tauri\\ffmpeg-processor\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\tauri-mongodb-manager", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\disk-sight", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\pasteboard", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\sunrse", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\sunrise-screenshot", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\screen-capture-app", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\ffmpeg-processor", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\time", progress: 89, total_items: 28, processed_items: 25 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\trae", progress: 92, total_items: 28, processed_items: 26 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\video", progress: 96, total_items: 28, processed_items: 27 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\videos", progress: 100, total_items: 28, processed_items: 28 }
+INFO - 2026-02-25 15:00:28 - 子目录: "node_modules",name:"node_modules",local_entries:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "442.0MB", size_raw: 463469077, path: "D:\\project\\project\\videos\\app\\web\\node_modules" }]
+INFO - 2026-02-25 15:00:28 - 扫描结束，数据是:[FileEntry { file_type: 'd', permissions: "rwx", size_display: "257.8MB", size_raw: 270316792, path: "D:\\project\\project\\bun\\react-cesium\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "189.4MB", size_raw: 198548526, path: "D:\\project\\project\\cursor\\test\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "10.5MB", size_raw: 11003441, path: "D:\\project\\project\\docker\\n8n_data\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.0MB", size_raw: 2098669, path: "D:\\project\\project\\github\\API-Examples-Web\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "0B", size_raw: 0, path: "D:\\project\\project\\github\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.9MB", size_raw: 63864169, path: "D:\\project\\project\\go\\go\\go-docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.0MB", size_raw: 1067987, path: "D:\\project\\project\\go\\go-docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.8MB", size_raw: 36455880, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "85.8MB", size_raw: 89988127, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "39.6MB", size_raw: 41524212, path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "347.4MB", size_raw: 364299885, path: "D:\\project\\project\\node\\my-app\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "127.6MB", size_raw: 133823034, path: "D:\\project\\project\\node\\my-turborepo\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "26.3KB", size_raw: 26928, path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.2KB", size_raw: 35062, path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "67.1MB", size_raw: 70401692, path: "D:\\project\\project\\node\\right-click\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.2MB", size_raw: 36871628, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "2.7MB", size_raw: 2828213, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "703.1MB", size_raw: 737275022, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "34.5KB", size_raw: 35284, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "60.4KB", size_raw: 61896, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "29.1KB", size_raw: 29833, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "33.0MB", size_raw: 34570339, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "63.1KB", size_raw: 64656, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "69.6KB", size_raw: 71244, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "70.4MB", size_raw: 73774544, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "97.7MB", size_raw: 102408006, path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "503.7MB", size_raw: 528137052, path: "D:\\project\\project\\tauri\\disk-sight\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "152.7MB", size_raw: 160163006, path: "D:\\project\\project\\tauri\\ffmpeg-processor\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "57.2MB", size_raw: 59951661, path: "D:\\project\\project\\tauri\\my\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "194.9MB", size_raw: 204397547, path: "D:\\project\\project\\tauri\\pasteboard\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "141.4MB", size_raw: 148287000, path: "D:\\project\\project\\tauri\\screen-capture-app\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "133.6MB", size_raw: 140053518, path: "D:\\project\\project\\tauri\\sunrise-screenshot\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "82.4MB", size_raw: 86409011, path: "D:\\project\\project\\tauri\\sunrse\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "142.4MB", size_raw: 149309896, path: "D:\\project\\project\\tauri\\tauri-mongodb-manager\\node_modules" }, FileEntry { file_type: 'd', permissions: "rwx", size_display: "442.0MB", size_raw: 463469077, path: "D:\\project\\project\\videos\\app\\web\\node_modules" }],数据数量:43
+INFO - 2026-02-25 15:00:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\videos\\app\\web", progress: 100, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 15:00:28 - 接收数据:Completed { total_files: 43, total_size: "5.0GB" }
+INFO - 2026-02-25 15:00:32 - Key pressed: Down
+INFO - 2026-02-25 15:00:32 - Key pressed: Down
+INFO - 2026-02-25 15:00:32 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:33 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:34 - Key pressed: Down
+INFO - 2026-02-25 15:00:35 - Key pressed: Down
+INFO - 2026-02-25 15:00:35 - Key pressed: Down
+INFO - 2026-02-25 15:00:35 - Key pressed: Down
+INFO - 2026-02-25 15:00:35 - Key pressed: Down
+INFO - 2026-02-25 15:00:35 - Key pressed: Down
+INFO - 2026-02-25 15:00:35 - Key pressed: Up
+INFO - 2026-02-25 15:00:35 - Key pressed: Up
+INFO - 2026-02-25 15:00:35 - Key pressed: Up
+INFO - 2026-02-25 15:00:35 - Key pressed: Up
+INFO - 2026-02-25 15:00:35 - Key pressed: Up
+INFO - 2026-02-25 15:00:35 - Key pressed: Up
+INFO - 2026-02-25 15:00:35 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:36 - Key pressed: Up
+INFO - 2026-02-25 15:00:37 - Key pressed: Up
+INFO - 2026-02-25 15:00:37 - Key pressed: Up
+INFO - 2026-02-25 15:00:37 - Key pressed: Up
+INFO - 2026-02-25 15:00:37 - Key pressed: Up
+INFO - 2026-02-25 15:00:37 - Key pressed: Up
+INFO - 2026-02-25 15:00:37 - Key pressed: Up
+INFO - 2026-02-25 15:00:37 - Key pressed: Up
+INFO - 2026-02-25 15:00:38 - Key pressed: Up
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:38 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:39 - Key pressed: Down
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:40 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:41 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:42 - Key pressed: Up
+INFO - 2026-02-25 15:00:57 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:58 - Key pressed: Down
+INFO - 2026-02-25 15:00:59 - Key pressed: Down
+INFO - 2026-02-25 15:00:59 - Key pressed: Down
+INFO - 2026-02-25 15:00:59 - Key pressed: Down
+INFO - 2026-02-25 15:00:59 - Key pressed: Down
+INFO - 2026-02-25 15:00:59 - Key pressed: Down
+INFO - 2026-02-25 15:00:59 - Key pressed: Down
+INFO - 2026-02-25 15:00:59 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:00 - Key pressed: Down
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:01 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:02 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:03 - Key pressed: Up
+INFO - 2026-02-25 15:01:05 - Key pressed: Esc
