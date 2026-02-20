@@ -2751,3 +2751,188 @@ INFO - 2026-02-25 17:32:17 - 接收数据:Scanning { current_path: "D:\\project\
 INFO - 2026-02-25 17:32:17 - 接收数据:Completed { total_files: 43, total_size: "5.0GB" }
 INFO - 2026-02-25 17:32:58 - Key pressed: Char('c')
 INFO - 2026-02-25 17:32:58 - Key pressed: Char('q')
+INFO - 2026-02-25 17:47:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\", progress: 0, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 17:47:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication", progress: 3, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication2", progress: 7, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:25 - 接收数据:Scanning { current_path: "D:\\project\\project\\android", progress: 10, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:26 - 接收数据:Scanning { current_path: "D:\\project\\project\\app", progress: 14, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:26 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun", progress: 17, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:26 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:26 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun\\react-cesium\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:26 - 接收数据:Scanning { current_path: "D:\\project\\project\\c", progress: 21, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:27 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor", progress: 25, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor\\test\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\disk-sight", progress: 28, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\dist", progress: 32, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker", progress: 35, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker\\n8n_data\\node_modules", progress: 100, total_items: 1, processed_items: 1 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\esp8266", progress: 39, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\flutter", progress: 42, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\github", progress: 46, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:28 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\API-Examples-Web\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\go", progress: 50, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:28 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:28 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go\\go-docs\\node_modules", progress: 50, total_items: 2, processed_items: 1 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go-docs\\node_modules", progress: 50, total_items: 2, processed_items: 1 }
+INFO - 2026-02-25 17:47:28 - 接收数据:Scanning { current_path: "D:\\project\\project\\home", progress: 53, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:29 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:29 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules", progress: 1, total_items: 89, processed_items: 1 }
+INFO - 2026-02-25 17:47:29 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:29 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules", progress: 1, total_items: 89, processed_items: 1 }
+INFO - 2026-02-25 17:47:29 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:29 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
+INFO - 2026-02-25 17:47:29 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:29 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
+INFO - 2026-02-25 17:47:29 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:29 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:29 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:29 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\html", progress: 57, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\java", progress: 60, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\lceda", progress: 64, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\logs", progress: 67, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\nginx", progress: 71, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node", progress: 75, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules", progress: 100, total_items: 1, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:30 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:30 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:31 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:31 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:31 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:31 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:31 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:31 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:31 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\m3u8\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:31 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:31 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\csdn\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:31 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-app\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:31 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\right-click\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:31 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:31 - 接收数据:Scanning { current_path: "D:\\project\\project\\python", progress: 78, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:32 - 接收数据:Scanning { current_path: "D:\\project\\project\\rust", progress: 82, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:37 - 接收数据:Scanning { current_path: "D:\\project\\project\\", progress: 0, total_items: 0, processed_items: 0 }
+INFO - 2026-02-25 17:47:37 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication", progress: 3, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:37 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication2", progress: 7, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:37 - 接收数据:Scanning { current_path: "D:\\project\\project\\android", progress: 10, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:37 - 接收数据:Scanning { current_path: "D:\\project\\project\\app", progress: 14, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:37 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun", progress: 17, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:38 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:38 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun\\react-cesium\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:38 - 接收数据:Scanning { current_path: "D:\\project\\project\\c", progress: 21, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:39 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor", progress: 25, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:39 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor\\test\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\disk-sight", progress: 28, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\dist", progress: 32, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker", progress: 35, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:40 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker\\n8n_data\\node_modules", progress: 100, total_items: 1, processed_items: 1 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\esp8266", progress: 39, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\flutter", progress: 42, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\github", progress: 46, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:40 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:40 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\API-Examples-Web\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\go", progress: 50, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:40 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:40 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go-docs\\node_modules", progress: 50, total_items: 2, processed_items: 1 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go\\go-docs\\node_modules", progress: 50, total_items: 2, processed_items: 1 }
+INFO - 2026-02-25 17:47:40 - 接收数据:Scanning { current_path: "D:\\project\\project\\home", progress: 53, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules", progress: 1, total_items: 89, processed_items: 1 }
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules", progress: 1, total_items: 89, processed_items: 1 }
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
+INFO - 2026-02-25 17:47:41 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:41 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:41 - 接收数据:Scanning { current_path: "D:\\project\\project\\html", progress: 57, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:41 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\java", progress: 60, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\lceda", progress: 64, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:42 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\logs", progress: 67, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:42 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\nginx", progress: 71, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node", progress: 75, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules", progress: 100, total_items: 1, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:42 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:42 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:43 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:43 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:43 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:43 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:43 - 子目录: "node_modules",name:"node_modules",local_entries:[]
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-app\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\csdn\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\m3u8\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\right-click\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\python", progress: 78, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:43 - 接收数据:Scanning { current_path: "D:\\project\\project\\rust", progress: 82, total_items: 28, processed_items: 0 }
+INFO - 2026-02-25 17:47:47 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri", progress: 85, total_items: 28, processed_items: 0 }

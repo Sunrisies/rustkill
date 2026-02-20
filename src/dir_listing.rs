@@ -371,7 +371,11 @@ fn get_canonical_path(path: &Path) -> String {
 }
 
 // 添加新的扫描函数，支持进度更新
-pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>) -> Vec<FileEntry> {
+pub fn scan_directory_with_progress(
+    path: &Path,
+    status_tx: &Sender<ScanStatus>,
+    entries_tx: &Sender<FileEntry>, // 添加这个参数
+) -> Vec<FileEntry> {
     // 发送初始状态
     let _ = status_tx.send(ScanStatus::Scanning {
         current_path: path.display().to_string(),
@@ -398,13 +402,12 @@ pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>)
     files.sort();
     let total_files = files.len();
     let mut processed_files = 0;
-    for (_i, file) in files.iter().enumerate() {
-        log::error!("文件: {:?}", file);
-    }
     let mut entries = Vec::new();
     let name = String::from("node_modules");
+
     for (_i, file) in files.iter().enumerate() {
         let file_path = path.join(&file);
+
         // 更新进度
         processed_files += 1;
         let progress = (processed_files as f64 / total_files as f64 * 100.0) as u16;
@@ -412,9 +415,9 @@ pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>)
             current_path: file_path.display().to_string(),
             progress,
             total_items: total_files,
-            processed_items: processed_files,
+            processed_items: 0,
         });
-        // if name {
+
         let metadata = match file_path.metadata() {
             Ok(m) => m,
             Err(e) => {
@@ -422,11 +425,18 @@ pub fn scan_directory_with_progress(path: &Path, status_tx: &Sender<ScanStatus>)
                 continue;
             }
         };
+
         if metadata.is_dir() {
             // 如果是目录，是否跟要搜索的名称匹配
             if !file.contains(&name) {
-                calculate_dir_size_parallel_v2(file_path, true, &name, status_tx, &mut entries);
-
+                calculate_dir_size_parallel_v2(
+                    file_path,
+                    true,
+                    &name,
+                    status_tx,
+                    entries_tx,
+                    &mut entries,
+                );
                 continue;
             }
         } else {
@@ -452,6 +462,7 @@ fn calculate_dir_size_parallel_v2(
     human_readable: bool,
     name: &str,
     status_tx: &Sender<ScanStatus>,
+    entries_tx: &Sender<FileEntry>,
     entries: &mut Vec<FileEntry>,
 ) {
     let sub_entries = match fs::read_dir(&file_path) {
@@ -478,44 +489,61 @@ fn calculate_dir_size_parallel_v2(
         })
         .collect();
 
+    let total_items = dirs_to_process.len();
+    // 使用原子类型来跟踪已处理的项数
+    let processed_items = std::sync::atomic::AtomicUsize::new(0);
+
     // 并行处理每个子目录
     let results: Vec<Vec<FileEntry>> = dirs_to_process
         .into_par_iter()
-        .map(|(sub_path, sub_name)| {
+        .enumerate()
+        .map(|(i, (sub_path, sub_name))| {
             let mut local_entries = Vec::new();
             if sub_name.contains(name) {
                 // 匹配：计算大小
                 let (raw, converted) =
                     calculate_dir_size(&sub_path, human_readable, &ProgressBar::hidden(), true);
-                local_entries.push(FileEntry {
+                let entry = FileEntry {
                     file_type: 'd',
                     permissions: "rwx".to_string(),
                     size_display: converted,
                     size_raw: raw,
                     path: get_canonical_path(&sub_path),
-                });
+                };
                 info!(
                     "子目录: {:?},name:{:?},local_entries:{:?}",
                     sub_name, name, local_entries
                 );
+
+                // 发送条目到通道
+                let _ = entries_tx.send(entry.clone());
+
+                // 原子地更新已处理项数
+                let processed =
+                    processed_items.fetch_add(1, std::sync::atomic::Ordering::SeqCst) + 1;
+                let progress = if total_items > 0 {
+                    (processed as f64 / total_items as f64 * 100.0) as u16
+                } else {
+                    0
+                };
                 let _ = status_tx.send(ScanStatus::Scanning {
-                    current_path: file_path.display().to_string(),
-                    progress: 100,
-                    total_items: 0,
-                    processed_items: 0,
+                    current_path: sub_path.display().to_string(),
+                    progress,
+                    total_items,
+                    processed_items: processed,
                 });
+
+                local_entries.push(entry);
             } else {
                 calculate_dir_size_parallel_v2(
                     sub_path,
                     human_readable,
-                    // Arc::clone(&pb),
                     name,
                     status_tx,
+                    entries_tx,
                     &mut local_entries,
                 );
-                // info!("进入");
             }
-            // info!("子目录处理完成: {:?}", local_entries);
             local_entries
         })
         .collect();
