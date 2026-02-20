@@ -33,10 +33,7 @@ fn main() -> Result<(), anyhow::Error> {
     if path.is_dir() {
         // 使用TUI显示结果
         match scan_directory_with_ui(path) {
-            Ok(entries) => {
-                // 使用TUI显示结果
-                // let _ = init_render(entries);
-            }
+            Ok(_) => {}
             Err(e) => {
                 eprintln!("扫描失败: {}", e);
             }
@@ -71,11 +68,7 @@ fn scan_directory_with_ui(path: &Path) -> color_eyre::Result<Vec<FileEntry>> {
     let path_clone = path.to_path_buf();
     thread::spawn(move || {
         // 调用实际的扫描函数
-        let entries = scan_directory_with_progress(&path_clone, &status_tx, &result_tx);
-        // 扫描结束
-        log::info!("扫描结束，数据数量:{}", entries.len());
-        // 发送结果
-        // let _ = result_tx.send(entries);
+        scan_directory_with_progress(&path_clone, &status_tx, &result_tx);
     });
 
     // 运行TUI界面显示扫描进度

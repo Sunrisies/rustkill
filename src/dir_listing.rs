@@ -375,7 +375,7 @@ pub fn scan_directory_with_progress(
     path: &Path,
     status_tx: &Sender<ScanStatus>,
     entries_tx: &Sender<FileEntry>, // 添加这个参数
-) -> Vec<FileEntry> {
+) {
     // 发送初始状态
     let _ = status_tx.send(ScanStatus::Scanning {
         current_path: path.display().to_string(),
@@ -388,7 +388,7 @@ pub fn scan_directory_with_progress(
         Ok(entries) => entries,
         Err(e) => {
             eprintln!("ls: cannot access '{}': {}", path.display(), e);
-            return Vec::new();
+            return;
         }
     };
 
@@ -453,7 +453,7 @@ pub fn scan_directory_with_progress(
         total_size: human_readable_size(total_size),
     });
 
-    entries
+    // entries
 }
 
 // 搜索文件
