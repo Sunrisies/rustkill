@@ -122,7 +122,11 @@ fn run_scan_ui(
             // 渲染UI
             terminal.draw(|frame| {
                 render_scan_ui(frame, &current_status, frame_count, start_time, &entries);
-                render_results(frame, &mut list_state, &entries);
+
+                // 只有在扫描完成后才渲染结果列表
+                if matches!(current_status, ScanStatus::Completed { .. }) {
+                    render_results(frame, &mut list_state, &entries);
+                }
             })?;
         }
 
@@ -152,7 +156,6 @@ fn run_scan_ui(
 }
 
 // 渲染扫描UI
-// 渲染扫描UI
 fn render_scan_ui(
     frame: &mut Frame,
     status: &ScanStatus,
@@ -160,23 +163,36 @@ fn render_scan_ui(
     start_time: Instant,
     entries: &[FileEntry],
 ) {
+    // 根据状态决定是否显示结果列表
+    let show_results = matches!(status, ScanStatus::Completed { .. });
+
+    // 根据状态调整布局
+    let constraints = if show_results {
+        vec![
+            Constraint::Length(3), // 标题
+            Constraint::Length(1), // 动态数据
+            Constraint::Length(3), // 完成状态
+            Constraint::Length(3), // 统计信息
+            Constraint::Length(3), // 操作提示
+            Constraint::Fill(1),   // 结果列表
+        ]
+    } else {
+        vec![
+            Constraint::Length(3), // 标题
+            Constraint::Length(1), // 动态数据
+            Constraint::Length(3), // 动画
+            Constraint::Length(3), // 进度条
+            Constraint::Length(3), // 当前路径
+        ]
+    };
+
     let chunks = Layout::default()
         .direction(Direction::Vertical)
         .margin(1)
-        .constraints(
-            [
-                Constraint::Length(3), // 标题
-                Constraint::Length(1), // 动态数据
-                Constraint::Length(3), // 动画
-                Constraint::Length(3), // 进度条
-                Constraint::Length(3), // 当前状态
-                Constraint::Fill(1),   // 填充剩余空间
-            ]
-            .as_ref(),
-        )
+        .constraints(constraints)
         .split(frame.area());
 
-    // 标题
+    // 标题（共用）
     let title = Paragraph::new("RustKill")
         .block(Block::default().borders(Borders::ALL))
         .style(
@@ -184,7 +200,7 @@ fn render_scan_ui(
                 .fg(Color::Cyan)
                 .add_modifier(Modifier::BOLD),
         )
-        .alignment(Alignment::Center);
+        .alignment(Alignment::Right);
     frame.render_widget(title, chunks[0]);
 
     // 计算总大小
@@ -199,7 +215,7 @@ fn render_scan_ui(
     let elapsed = start_time.elapsed();
     let search_time = format!("{:.2}s", elapsed.as_secs_f64());
 
-    // 顶部信息行
+    // 顶部信息行（共用）
     let top_info = Line::from(vec![
         Span::styled("可释放空间: ", Style::default().fg(Color::White)),
         Span::styled(releasable_space, Style::default().fg(Color::Green)),
@@ -210,33 +226,6 @@ fn render_scan_ui(
     ]);
     frame.render_widget(Paragraph::new(top_info), chunks[1]);
 
-    // 旋转动画
-    let spinner_chars = ['-', '\\', '|', '/'];
-    let spinner_index = (frame_count / 2) as usize % spinner_chars.len();
-    let spinner_char = spinner_chars[spinner_index];
-
-    let elapsed = start_time.elapsed();
-    let duration_str = format!(
-        "{:02}:{:02}",
-        elapsed.as_secs() / 60,
-        elapsed.as_secs() % 60
-    );
-
-    let animation_text = Paragraph::new(Line::from(vec![
-        Span::styled(
-            format!("{} ", spinner_char),
-            Style::default().fg(Color::Yellow),
-        ),
-        Span::styled("扫描中...", Style::default().fg(Color::White)),
-        Span::styled(
-            format!(" [{}]", duration_str),
-            Style::default().fg(Color::Gray),
-        ),
-    ]))
-    .block(Block::default().borders(Borders::ALL).title("状态"))
-    .alignment(Alignment::Center);
-    frame.render_widget(animation_text, chunks[2]);
-
     // 根据状态渲染不同内容
     match status {
         ScanStatus::Scanning {
@@ -245,6 +234,33 @@ fn render_scan_ui(
             total_items,
             processed_items,
         } => {
+            // 旋转动画
+            let spinner_chars = ['-', '\\', '|', '/'];
+            let spinner_index = (frame_count / 2) as usize % spinner_chars.len();
+            let spinner_char = spinner_chars[spinner_index];
+
+            let elapsed = start_time.elapsed();
+            let duration_str = format!(
+                "{:02}:{:02}",
+                elapsed.as_secs() / 60,
+                elapsed.as_secs() % 60
+            );
+
+            let animation_text = Paragraph::new(Line::from(vec![
+                Span::styled(
+                    format!("{} ", spinner_char),
+                    Style::default().fg(Color::Yellow),
+                ),
+                Span::styled("扫描中...", Style::default().fg(Color::White)),
+                Span::styled(
+                    format!(" [{}]", duration_str),
+                    Style::default().fg(Color::Gray),
+                ),
+            ]))
+            .block(Block::default().borders(Borders::ALL).title("状态"))
+            .alignment(Alignment::Center);
+            frame.render_widget(animation_text, chunks[2]);
+
             // 进度条
             let progress_bar = Paragraph::new(Line::from(vec![
                 Span::raw("进度: "),
@@ -278,7 +294,7 @@ fn render_scan_ui(
             ]))
             .block(Block::default().borders(Borders::ALL).title("完成"))
             .alignment(Alignment::Center);
-            frame.render_widget(completion_text, chunks[3]);
+            frame.render_widget(completion_text, chunks[2]);
 
             // 显示统计信息
             let stats_text = Paragraph::new(Line::from(vec![
@@ -289,57 +305,29 @@ fn render_scan_ui(
             ]))
             .block(Block::default().borders(Borders::ALL).title("统计"))
             .alignment(Alignment::Center);
-            frame.render_widget(stats_text, chunks[4]);
+            frame.render_widget(stats_text, chunks[3]);
+
+            // 操作提示
+            let hint_text = Paragraph::new(Line::from(vec![Span::styled(
+                "光标选择 - 空格删除",
+                Style::default().fg(Color::Yellow),
+            )]))
+            .block(Block::default().borders(Borders::ALL).title("操作"))
+            .alignment(Alignment::Center);
+            frame.render_widget(hint_text, chunks[4]);
         }
     }
 }
 
-fn init_render(entries: Vec<FileEntry>) -> color_eyre::Result<()> {
-    let mut list_state = ListState::default().with_selected(Some(0));
-    ratatui::run(|terminal| loop {
-        terminal.draw(|frame| render(frame, &mut list_state, &entries))?;
-        if let event::Event::Key(key) = event::read()? {
-            // 仅处理按下事件
-            if key.kind == event::KeyEventKind::Press {
-                log::info!("Key pressed: {:?}", key.code);
-                match key.code {
-                    KeyCode::Char('j') | KeyCode::Down => list_state.select_next(),
-                    KeyCode::Char('k') | KeyCode::Up => list_state.select_previous(),
-                    KeyCode::Char(' ') => {
-                        // 空格键删除选中项
-                        if let Some(selected) = list_state.selected() {
-                            if selected < entries.len() {
-                                log::info!("删除选中项: {:?}", entries[selected].path);
-                                // 这里可以添加实际的删除逻辑
-                            }
-                        }
-                    }
-                    KeyCode::Char('q') | KeyCode::Esc => break Ok(()),
-                    _ => {}
-                }
-            }
-        }
-    })
-}
 // 渲染结果列表
 fn render_results(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) {
-    // 操作提示行
-    let hint_line = Line::from(vec![Span::styled(
-        "光标选择 - 空格删除",
-        Style::default().fg(Color::Yellow),
-    )]);
-
     // 列表区域
     let constraints = [
-        Constraint::Length(1), // 操作提示行
         Constraint::Fill(1),   // 列表
         Constraint::Length(1), // 版本号
     ];
     let layout = Layout::vertical(constraints).spacing(0);
-    let [hint_area, list_area, version_area] = frame.area().layout(&layout);
-
-    // 渲染操作提示行
-    frame.render_widget(hint_line, hint_area);
+    let [list_area, version_area] = frame.area().layout(&layout);
 
     // 渲染列表
     render_list(frame, list_area, list_state, entries);
@@ -352,61 +340,6 @@ fn render_results(frame: &mut Frame, list_state: &mut ListState, entries: &[File
     frame.render_widget(version_line, version_area);
 }
 
-/// Render the UI with various lists.
-fn render(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) {
-    // 计算总大小
-    let total_size: u64 = entries.iter().map(|e| e.size_raw).sum();
-    let total_size_display = human_readable_size(total_size);
-
-    // 计算可释放空间（这里假设所有找到的node_modules都是可释放的）
-    let releasable_space = total_size_display.clone();
-    let space_saved = "0.00 GB".to_string();
-
-    // 模拟搜索时间（实际应该从扫描过程中获取）
-    let search_time = "3.82s".to_string();
-
-    // 顶部信息行
-    let top_info = Line::from(vec![
-        Span::styled("可释放空间: ", Style::default().fg(Color::White)),
-        Span::styled(releasable_space, Style::default().fg(Color::Green)),
-        Span::styled("  节省空间: ", Style::default().fg(Color::White)),
-        Span::styled(space_saved, Style::default().fg(Color::Green)),
-        Span::styled("  搜索已完成 ", Style::default().fg(Color::White)),
-        Span::styled(search_time, Style::default().fg(Color::Cyan)),
-    ]);
-
-    // 操作提示行
-    let hint_line = Line::from(vec![Span::styled(
-        "光标选择 - 空格删除",
-        Style::default().fg(Color::Yellow),
-    )]);
-
-    // 列表区域
-    let constraints = [
-        Constraint::Length(1), // 顶部信息行
-        Constraint::Length(1), // 操作提示行
-        Constraint::Fill(1),   // 列表
-        Constraint::Length(1), // 版本号
-    ];
-    let layout = Layout::vertical(constraints).spacing(0);
-    let [top_area, hint_area, list_area, version_area] = frame.area().layout(&layout);
-
-    // 渲染顶部信息行
-    frame.render_widget(top_info, top_area);
-
-    // 渲染操作提示行
-    frame.render_widget(hint_line, hint_area);
-
-    // 渲染列表
-    render_list(frame, list_area, list_state, entries);
-
-    // 渲染版本号
-    let version_line = Line::from(vec![Span::styled(
-        "0.1.0",
-        Style::default().fg(Color::Gray),
-    )]);
-    frame.render_widget(version_line, version_area);
-}
 /// Render a list.
 pub fn render_list(
     frame: &mut Frame,
