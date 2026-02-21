@@ -15,8 +15,8 @@ use crossterm::event::{self, KeyCode, KeyEventKind};
 use models::Cli;
 use ratatui::layout::{Alignment, Constraint, Direction, Layout, Rect};
 use ratatui::style::{Color, Modifier, Style};
-use ratatui::text::{Line, Span};
-use ratatui::widgets::{Block, Borders, List, ListState, Paragraph, Wrap};
+use ratatui::text::{Line, Span, Text};
+use ratatui::widgets::{Block, Borders, List, ListItem, ListState, Paragraph, Wrap};
 use ratatui::Frame;
 
 use crate::models::FileEntry;
@@ -103,25 +103,48 @@ fn run_scan_ui(
 
     ratatui::run(|terminal| loop {
         // 检查是否有新的状态更新
+        let previous_status = current_status.clone();
         if let Ok(status) = status_rx.try_recv() {
             current_status = status.clone();
             log::info!("接收数据:{:?}", status);
+
+            // 如果状态从扫描变为完成，立即更新UI
+            if matches!(previous_status, ScanStatus::Scanning { .. })
+                && matches!(current_status, ScanStatus::Completed { .. })
+            {
+                terminal.draw(|frame| {
+                    render_scan_ui(frame, &current_status, frame_count, start_time, &entries, 0);
+                    // render_results(frame, &mut list_state, &entries);
+                })?;
+            }
         }
 
         // 检查是否有新的条目
+        let mut has_new_entries = false;
         while let Ok(entry) = entries_rx.try_recv() {
             entries.push(entry);
+            has_new_entries = true;
         }
+
+        // 如果有新条目且状态是扫描中，立即更新UI
+        if has_new_entries && matches!(current_status, ScanStatus::Scanning { .. }) {
+            terminal.draw(|frame| {
+                render_scan_ui(frame, &current_status, frame_count, start_time, &entries, 0);
+            })?;
+        }
+
+        // 根据状态决定是否需要定期更新UI
+        let needs_periodic_update = matches!(current_status, ScanStatus::Scanning { .. });
 
         let now = Instant::now();
         // 渲染UI
-        if now.duration_since(last_update_time) >= update_interval {
+        if needs_periodic_update && now.duration_since(last_update_time) >= update_interval {
             last_update_time = now;
             frame_count += 1;
 
             // 渲染UI
             terminal.draw(|frame| {
-                render_scan_ui(frame, &current_status, frame_count, start_time, &entries);
+                render_scan_ui(frame, &current_status, frame_count, start_time, &entries, 0);
 
                 // 只有在扫描完成后才渲染结果列表
                 if matches!(current_status, ScanStatus::Completed { .. }) {
@@ -135,7 +158,13 @@ fn run_scan_ui(
             if let event::Event::Key(key) = event::read()? {
                 if key.kind == KeyEventKind::Press {
                     match key.code {
-                        KeyCode::Char('j') | KeyCode::Down => list_state.select_next(),
+                        KeyCode::Char('j') | KeyCode::Down => {
+                            list_state.select_next();
+                            log::info!(
+                                "选中项: {:?}",
+                                entries[list_state.selected().unwrap()].path
+                            );
+                        }
                         KeyCode::Char('k') | KeyCode::Up => list_state.select_previous(),
                         KeyCode::Char(' ') => {
                             // 空格键删除选中项
@@ -162,71 +191,63 @@ fn render_scan_ui(
     frame_count: u64,
     start_time: Instant,
     entries: &[FileEntry],
+    selected_index: usize, // 当前选中项索引
 ) {
-    // 根据状态决定是否显示结果列表
-    let show_results = matches!(status, ScanStatus::Completed { .. });
-
-    // 根据状态调整布局
-    let constraints = if show_results {
-        vec![
-            Constraint::Length(3), // 标题
-            Constraint::Length(1), // 动态数据
-            Constraint::Length(3), // 完成状态
-            Constraint::Length(3), // 统计信息
-            Constraint::Length(3), // 操作提示
-            Constraint::Fill(1),   // 结果列表
-        ]
-    } else {
-        vec![
-            Constraint::Length(3), // 标题
-            Constraint::Length(1), // 动态数据
-            Constraint::Length(3), // 动画
-            Constraint::Length(3), // 进度条
-            Constraint::Length(3), // 当前路径
-        ]
-    };
-
-    let chunks = Layout::default()
-        .direction(Direction::Vertical)
-        .margin(1)
-        .constraints(constraints)
-        .split(frame.area());
-
-    // 标题（共用）
-    let title = Paragraph::new("RustKill")
-        .block(Block::default().borders(Borders::ALL))
-        .style(
-            Style::default()
-                .fg(Color::Cyan)
-                .add_modifier(Modifier::BOLD),
-        )
-        .alignment(Alignment::Right);
-    frame.render_widget(title, chunks[0]);
-
     // 计算总大小
     let total_size: u64 = entries.iter().map(|e| e.size_raw).sum();
-    let total_size_display = human_readable_size(total_size);
-
-    // 计算可释放空间（这里假设所有找到的node_modules都是可释放的）
-    let releasable_space = total_size_display.clone();
+    let releasable_space = human_readable_size(total_size);
     let space_saved = "0.00 GB".to_string();
-
-    // 计算搜索时间
     let elapsed = start_time.elapsed();
     let search_time = format!("{:.2}s", elapsed.as_secs_f64());
 
-    // 顶部信息行（共用）
-    let top_info = Line::from(vec![
-        Span::styled("可释放空间: ", Style::default().fg(Color::White)),
-        Span::styled(releasable_space, Style::default().fg(Color::Green)),
-        Span::styled("  节省空间: ", Style::default().fg(Color::White)),
-        Span::styled(space_saved, Style::default().fg(Color::Green)),
-        Span::styled("  搜索时间: ", Style::default().fg(Color::White)),
-        Span::styled(search_time, Style::default().fg(Color::Cyan)),
-    ]);
-    frame.render_widget(Paragraph::new(top_info), chunks[1]);
+    // 主布局：上（头部）、中（列表区域）、下（底部栏）
+    let main_layout = Layout::default()
+        .direction(Direction::Vertical)
+        .margin(1)
+        .constraints([
+            Constraint::Length(9), // 头部：Logo + 统计
+            Constraint::Fill(1),   // 中部：扫描进度 或 结果列表
+            Constraint::Length(2), // 底部：表头 + 操作提示
+        ])
+        .split(frame.area());
 
-    // 根据状态渲染不同内容
+    // ========== 头部区域（不变）==========
+    let header_layout = Layout::default()
+        .direction(Direction::Horizontal)
+        .constraints([Constraint::Length(42), Constraint::Min(30)])
+        .split(main_layout[0]);
+
+    let logo = Paragraph::new(
+        r#"
+    ____             __ __ _      __
+   / __ \__  _______/ //_/(_)____/ /_
+  / /_/ / / / / ___/ ,<  / / ___/ __ \
+ / _, _/ /_/ (__  ) /| |/ (__  ) / / /
+/_/ |_|\__,_/____/_/ |_/_/____/_/ /_/
+                                     0.1.0"#,
+    )
+    .style(Style::default().fg(Color::Cyan));
+    frame.render_widget(logo, header_layout[0]);
+
+    let info_lines = vec![
+        Line::from(vec![
+            Span::styled("Releasable space: ", Style::default().fg(Color::Gray)),
+            Span::styled(releasable_space, Style::default().fg(Color::White)),
+        ]),
+        Line::from(vec![
+            Span::styled("Space saved: ", Style::default().fg(Color::Gray)),
+            Span::styled(space_saved, Style::default().fg(Color::White)),
+        ]),
+        Line::from(""),
+        Line::from(vec![
+            Span::styled("Search completed ", Style::default().fg(Color::Green)),
+            Span::styled(search_time, Style::default().fg(Color::Cyan)),
+        ]),
+    ];
+    let info = Paragraph::new(Text::from(info_lines));
+    frame.render_widget(info, header_layout[1]);
+
+    // ========== 中部区域 ==========
     match status {
         ScanStatus::Scanning {
             current_path,
@@ -234,12 +255,18 @@ fn render_scan_ui(
             total_items,
             processed_items,
         } => {
-            // 旋转动画
+            // 扫描中：显示进度
+            let scan_layout = Layout::default()
+                .direction(Direction::Vertical)
+                .constraints([
+                    Constraint::Length(3),
+                    Constraint::Length(3),
+                    Constraint::Fill(1),
+                ])
+                .split(main_layout[1]);
+
             let spinner_chars = ['-', '\\', '|', '/'];
             let spinner_index = (frame_count / 2) as usize % spinner_chars.len();
-            let spinner_char = spinner_chars[spinner_index];
-
-            let elapsed = start_time.elapsed();
             let duration_str = format!(
                 "{:02}:{:02}",
                 elapsed.as_secs() / 60,
@@ -248,7 +275,7 @@ fn render_scan_ui(
 
             let animation_text = Paragraph::new(Line::from(vec![
                 Span::styled(
-                    format!("{} ", spinner_char),
+                    format!("{} ", spinner_chars[spinner_index]),
                     Style::default().fg(Color::Yellow),
                 ),
                 Span::styled("扫描中...", Style::default().fg(Color::White)),
@@ -259,9 +286,8 @@ fn render_scan_ui(
             ]))
             .block(Block::default().borders(Borders::ALL).title("状态"))
             .alignment(Alignment::Center);
-            frame.render_widget(animation_text, chunks[2]);
+            frame.render_widget(animation_text, scan_layout[0]);
 
-            // 进度条
             let progress_bar = Paragraph::new(Line::from(vec![
                 Span::raw("进度: "),
                 Span::styled(format!("{}%", progress), Style::default().fg(Color::Green)),
@@ -269,56 +295,131 @@ fn render_scan_ui(
             ]))
             .block(Block::default().borders(Borders::ALL).title("扫描进度"))
             .alignment(Alignment::Center);
-            frame.render_widget(progress_bar, chunks[3]);
+            frame.render_widget(progress_bar, scan_layout[1]);
 
-            // 当前路径
             let path_text = Paragraph::new(current_path.as_str())
                 .block(Block::default().borders(Borders::ALL).title("当前路径"))
                 .wrap(Wrap { trim: true });
-            frame.render_widget(path_text, chunks[4]);
+            frame.render_widget(path_text, scan_layout[2]);
         }
-        ScanStatus::Completed {
-            total_files,
-            total_size,
-        } => {
-            // 扫描完成时显示的提示
-            let completion_text = Paragraph::new(Line::from(vec![
-                Span::styled(
-                    "✓",
-                    Style::default()
-                        .fg(Color::Green)
-                        .add_modifier(Modifier::BOLD),
-                ),
-                Span::styled(" 扫描完成！", Style::default().fg(Color::Green)),
-                Span::styled(" 按任意键继续...", Style::default().fg(Color::Gray)),
-            ]))
-            .block(Block::default().borders(Borders::ALL).title("完成"))
-            .alignment(Alignment::Center);
-            frame.render_widget(completion_text, chunks[2]);
+        ScanStatus::Completed { .. } => {
+            // 扫描完成：显示可操作的列表
+            let list_area = main_layout[1];
 
-            // 显示统计信息
-            let stats_text = Paragraph::new(Line::from(vec![
-                Span::styled("文件数: ", Style::default().fg(Color::White)),
-                Span::styled(format!("{}", total_files), Style::default().fg(Color::Cyan)),
-                Span::styled(" | 总大小: ", Style::default().fg(Color::White)),
-                Span::styled(total_size.clone(), Style::default().fg(Color::Cyan)),
-            ]))
-            .block(Block::default().borders(Borders::ALL).title("统计"))
-            .alignment(Alignment::Center);
-            frame.render_widget(stats_text, chunks[3]);
+            // 列宽定义（与底部表头对齐）
+            let path_width = list_area.width.saturating_sub(30); // 剩余空间给 Path
+            let last_mod_width = 10;
+            let size_width = 12;
 
-            // 操作提示
-            let hint_text = Paragraph::new(Line::from(vec![Span::styled(
-                "光标选择 - 空格删除",
-                Style::default().fg(Color::Yellow),
-            )]))
-            .block(Block::default().borders(Borders::ALL).title("操作"))
-            .alignment(Alignment::Center);
-            frame.render_widget(hint_text, chunks[4]);
+            let items: Vec<ListItem> = entries
+                .iter()
+                .enumerate()
+                .map(|(i, e)| {
+                    let path_display = if e.path.len() > path_width as usize {
+                        format!("...{}", &e.path[e.path.len() - path_width as usize + 3..])
+                    } else {
+                        e.path.clone()
+                    };
+
+                    let line = Line::from(vec![
+                        Span::raw(format!(
+                            "{:<width$}",
+                            path_display,
+                            width = path_width as usize
+                        )),
+                        Span::raw("  "),
+                        Span::styled(
+                            format!("{:>width$}", e.size_display, width = last_mod_width),
+                            Style::default().fg(Color::Gray),
+                        ),
+                        Span::raw("  "),
+                        Span::styled(
+                            format!(
+                                "{:>width$}",
+                                human_readable_size(e.size_raw),
+                                width = size_width
+                            ),
+                            Style::default().fg(Color::Cyan),
+                        ),
+                    ]);
+
+                    let mut item = ListItem::new(line);
+                    // 选中项高亮
+                    if i == selected_index {
+                        item = item.style(Style::default().bg(Color::Yellow).fg(Color::Black));
+                    }
+                    item
+                })
+                .collect();
+
+            let list = List::new(items)
+                .block(
+                    Block::default()
+                        .borders(Borders::ALL)
+                        .title(format!("扫描结果 ({} items)", entries.len())),
+                )
+                .highlight_style(Style::default().bg(Color::Yellow).fg(Color::Black))
+                .highlight_symbol(">> ");
+
+            // 使用 StatefulList 或手动控制选中状态
+            let mut state = ListState::default();
+            state.select(Some(selected_index));
+
+            frame.render_stateful_widget(list, list_area, &mut state);
         }
     }
-}
 
+    // ========== 底部栏（表头 + 操作提示）==========
+    let bottom_layout = Layout::default()
+        .direction(Direction::Vertical)
+        .constraints([
+            Constraint::Length(1), // 表头
+            Constraint::Length(1), // 操作提示
+        ])
+        .split(main_layout[2]);
+
+    // 表头（与列表列宽对齐）
+    let list_width = main_layout[1].width.saturating_sub(2); // 减去边框
+    let path_width = list_width.saturating_sub(30);
+    let last_mod_width = 10;
+    let size_width = 12;
+
+    let header_line = Line::from(vec![
+        Span::styled(
+            format!("{:<width$}", "Path", width = path_width as usize),
+            Style::default()
+                .fg(Color::White)
+                .add_modifier(Modifier::BOLD),
+        ),
+        Span::raw("  "),
+        Span::styled(
+            format!("{:>width$}", "Last_mod", width = last_mod_width),
+            Style::default()
+                .fg(Color::White)
+                .add_modifier(Modifier::BOLD),
+        ),
+        Span::raw("  "),
+        Span::styled(
+            format!("{:>width$}", "Size", width = size_width),
+            Style::default()
+                .fg(Color::White)
+                .add_modifier(Modifier::BOLD),
+        ),
+    ]);
+
+    let header = Paragraph::new(header_line).style(Style::default().bg(Color::Rgb(60, 60, 60)));
+    frame.render_widget(header, bottom_layout[0]);
+
+    // 操作提示（橙色背景）
+    let hint = Paragraph::new("CURSORS for select - SPACE to delete")
+        .style(
+            Style::default()
+                .fg(Color::Black)
+                .bg(Color::Rgb(255, 140, 0)),
+        )
+        .alignment(Alignment::Left);
+    frame.render_widget(hint, bottom_layout[1]);
+}
 // 渲染结果列表
 fn render_results(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) {
     // 列表区域
