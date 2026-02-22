@@ -1,117 +1,69 @@
-INFO - 2026-02-26 13:31:41 - 删除选中项: "D:\\project\\project\\videos\\app\\web\\node_modules"
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\", progress: 0, total_items: 0, processed_items: 0 }
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication", progress: 3, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\MyApplication2", progress: 7, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\android", progress: 10, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\app", progress: 14, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun", progress: 17, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:49 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\bun\\react-cesium\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:49 - 接收数据:Scanning { current_path: "D:\\project\\project\\c", progress: 21, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:50 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor", progress: 25, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 接收数据:Scanning { current_path: "D:\\project\\project\\cursor\\test\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 接收数据:Scanning { current_path: "D:\\project\\project\\disk-sight", progress: 28, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 接收数据:Scanning { current_path: "D:\\project\\project\\dist", progress: 32, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker", progress: 35, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:50 - 接收数据:Scanning { current_path: "D:\\project\\project\\docker\\n8n_data\\node_modules", progress: 100, total_items: 1, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\esp8266", progress: 39, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\flutter", progress: 42, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\github", progress: 46, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\github\\API-Examples-Web\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\go", progress: 50, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go\\go-docs\\node_modules", progress: 50, total_items: 2, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\go\\go-docs\\node_modules", progress: 50, total_items: 2, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\home", progress: 53, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules", progress: 1, total_items: 89, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\extensions\\node_modules", progress: 1, total_items: 89, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup\\home\\vscode\\code-server-4.9.1-linux-amd64\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\home\\home_backup1\\home\\vscode\\code-server-4.9.1-linux-amd64\\lib\\vscode\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\html", progress: 57, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\java", progress: 60, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\lceda", progress: 64, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:51 - 接收数据:Scanning { current_path: "D:\\project\\project\\logs", progress: 67, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\nginx", progress: 71, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node", progress: 75, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\docs\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\ui\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\packages\\eslint-config\\node_modules", progress: 100, total_items: 1, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\examples\\vue3-vite\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\vite-plugin-unused-images\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-app\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\csdn\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\right-click\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\my-turborepo\\node_modules", progress: 33, total_items: 3, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\node\\m3u8\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\python", progress: 78, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:52 - 接收数据:Scanning { current_path: "D:\\project\\project\\rust", progress: 82, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri", progress: 85, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\sunrse\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\screen-capture-app\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\ffmpeg-processor\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 子目录: "node_modules",name:"node_modules",local_entries:[]
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\sunrise-screenshot\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\pasteboard\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\my\\node_modules", progress: 25, total_items: 4, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\tauri-mongodb-manager\\node_modules", progress: 20, total_items: 5, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\tauri\\disk-sight\\node_modules", progress: 16, total_items: 6, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\time", progress: 89, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\trae", progress: 92, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\video", progress: 96, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\videos", progress: 100, total_items: 28, processed_items: 0 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Scanning { current_path: "D:\\project\\project\\videos\\app\\web\\node_modules", progress: 14, total_items: 7, processed_items: 1 }
-INFO - 2026-02-26 13:31:54 - 接收数据:Completed { total_files: 43, total_size: "5.0GB" }
+INFO - 2026-02-26 14:29:13 - 选中项: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules"
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "17.2KB", size_raw: 17592, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "13.7KB", size_raw: 14061, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "68.6KB", size_raw: 70212, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "25.1KB", size_raw: 25678, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.8KB", size_raw: 36618, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "583.6MB", size_raw: 611938832, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 选中项: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules"
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "17.2KB", size_raw: 17592, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "13.7KB", size_raw: 14061, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "68.6KB", size_raw: 70212, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "25.1KB", size_raw: 25678, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.8KB", size_raw: 36618, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "583.6MB", size_raw: 611938832, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "17.2KB", size_raw: 17592, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "13.7KB", size_raw: 14061, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "68.6KB", size_raw: 70212, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "25.1KB", size_raw: 25678, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.8KB", size_raw: 36618, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:13 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "583.6MB", size_raw: 611938832, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "17.2KB", size_raw: 17592, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "13.7KB", size_raw: 14061, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "68.6KB", size_raw: 70212, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "25.1KB", size_raw: 25678, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.8KB", size_raw: 36618, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:14 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "583.6MB", size_raw: 611938832, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:20 - 删除选中项: FileEntry { file_type: 'd', permissions: "rwx", size_display: "583.6MB", size_raw: 611938832, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:20 - 开始删除: "D:\\project\\project\\node\\sunrise-ui\\node_modules"
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "73.1MB", size_raw: 76637698, path: "D:\\project\\project\\node\\csdn\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "835.9MB", size_raw: 876460491, path: "D:\\project\\project\\node\\m3u8\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "1.1MB", size_raw: 1183702, path: "D:\\project\\project\\node\\my-turborepo\\apps\\web\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "17.2KB", size_raw: 17592, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\sunrise-cesium-utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "13.7KB", size_raw: 14061, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\cli\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\git-time-machine\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "48.5KB", size_raw: 49629, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\deploy\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "68.6KB", size_raw: 70212, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\utils\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "25.1KB", size_raw: 25678, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\typedoc-vitepress-plugin\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "35.8KB", size_raw: 36618, path: "D:\\project\\project\\node\\sunrise-ui\\packages\\ui\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "16.6KB", size_raw: 16992, path: "D:\\project\\project\\node\\sunrise-ui\\apps\\react-ui-plus\\node_modules", delete_status: NotDeleted }
+INFO - 2026-02-26 14:29:30 - 删除FileEntry { file_type: 'd', permissions: "rwx", size_display: "583.6MB", size_raw: 611938832, path: "D:\\project\\project\\node\\sunrise-ui\\node_modules", delete_status: Deleted }

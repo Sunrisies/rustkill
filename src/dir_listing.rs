@@ -1,7 +1,7 @@
-use crate::ScanStatus;
-
 use super::models::FileEntry;
 use super::utils::{human_readable_size, progress_bar_init};
+use crate::models::DeleteStatus::NotDeleted;
+use crate::ScanStatus;
 use comfy_table::{Cell, ContentArrangement, Table};
 
 use indicatif::ProgressBar;
@@ -238,6 +238,7 @@ pub fn list_directory(path: &Path) -> Vec<FileEntry> {
                     file_path.to_string_lossy().into_owned()
                 }
             },
+            delete_status: NotDeleted,
         };
         // info!("添加条目: {:?}", entry);
         entries.push(entry);
@@ -333,6 +334,7 @@ fn calculate_dir_size_parallel(
                     size_display: converted,
                     size_raw: raw,
                     path: get_canonical_path(&sub_path),
+                    delete_status: NotDeleted,
                 });
                 info!(
                     "子目录: {:?},name:{:?},local_entries:{:?}",
@@ -509,6 +511,7 @@ fn calculate_dir_size_parallel_v2(
                     size_display: converted,
                     size_raw: raw,
                     path: get_canonical_path(&sub_path),
+                    delete_status: NotDeleted,
                 };
                 info!(
                     "子目录: {:?},name:{:?},local_entries:{:?}",

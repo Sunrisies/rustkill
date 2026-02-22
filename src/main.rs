@@ -8,8 +8,8 @@ use clap::Parser;
 use logger::init_logger;
 use std::path::Path;
 use std::sync::mpsc::{self, Receiver};
-use std::thread;
 use std::time::{Duration, Instant};
+use std::{fs, thread};
 
 use crossterm::event::{self, KeyCode, KeyEventKind};
 use models::Cli;
@@ -19,7 +19,7 @@ use ratatui::text::{Line, Span, Text};
 use ratatui::widgets::{Block, Borders, List, ListItem, ListState, Paragraph, Wrap};
 use ratatui::Frame;
 
-use crate::models::FileEntry;
+use crate::models::{DeleteStatus, FileEntry};
 use crate::utils::human_readable_size;
 
 fn main() -> Result<(), anyhow::Error> {
@@ -165,11 +165,6 @@ fn run_scan_ui(
                     &entries,
                     &mut list_state,
                 );
-
-                // 只有在扫描完成后才渲染结果列表
-                // if matches!(current_status, ScanStatus::Completed { .. }) {
-                //     render_results(frame, &mut list_state, &entries);
-                // }
             })?;
         }
 
@@ -178,6 +173,7 @@ fn run_scan_ui(
             if let event::Event::Key(key) = event::read()? {
                 if key.kind == KeyEventKind::Press {
                     let mut needs_render = false;
+                    let mut delete_success = false;
                     match key.code {
                         KeyCode::Char('j') | KeyCode::Down => {
                             // 检查是否有条目
@@ -208,20 +204,63 @@ fn run_scan_ui(
                             // 空格键删除选中项
                             if let Some(selected) = list_state.selected() {
                                 if selected < entries.len() {
-                                    log::info!("删除选中项: {:?}", entries[selected].path);
-                                    // 这里可以添加实际的删除逻辑
-                                    // 删除项
-                                    entries.remove(selected);
-                                    needs_render = true;
+                                    let entry = &mut entries[selected];
+                                    log::info!("删除选中项: {:?}", entry);
+                                    // 根据删除状态执行不同操作
+                                    match entry.delete_status {
+                                        DeleteStatus::NotDeleted => {
+                                            // 未删除，执行删除操作
+                                            entry.delete_status = DeleteStatus::Deleting;
+                                            needs_render = true;
+                                            log::info!("开始删除: {:?}", entry.path);
+                                            // 实际执行删除操作
+                                            match fs::remove_dir_all(&entry.path) {
+                                                Ok(_) => {
+                                                    // 删除成功，标记为已删除
+                                                    entry.delete_status = DeleteStatus::Deleted;
+                                                    needs_render = true;
+                                                }
+                                                Err(e) => {
+                                                    // 删除失败，恢复为未删除状态
+                                                    entry.delete_status = DeleteStatus::NotDeleted;
+                                                    // delete_error = Some(format!("删除失败: {}", e));
+                                                    needs_render = true;
+                                                }
+                                            }
+                                        }
+                                        DeleteStatus::Deleting => {
+                                            entry.delete_status = DeleteStatus::Deleting;
 
-                                    // 更新选中索引
-                                    if entries.is_empty() {
-                                        list_state.select(None);
-                                    } else if selected >= entries.len() {
-                                        list_state.select(Some(entries.len() - 1));
-                                    } else {
-                                        // 保持当前选中索引
+                                            // 删除中，不做任何操作
+                                            log::info!("条目正在删除中: {:?}", entry.path);
+                                        }
+                                        DeleteStatus::Deleted => {
+                                            // 已删除，恢复
+                                            log::info!("这个已经删除过了: {:?}", entry.path);
+                                            needs_render = true;
+                                        }
                                     }
+                                    // needs_render = true;
+                                    // // 检查是否已经删除
+                                    // if entry.deleted {
+                                    //     // 如果已经删除，则恢复
+                                    //     log::info!("恢复已删除项: {:?}", entry.path);
+                                    //     entry.deleted = false;
+                                    //     needs_render = true;
+                                    // } else {
+                                    //     // 实际执行删除操作
+                                    //     match fs::remove_dir_all(&entry.path) {
+                                    //         Ok(_) => {
+                                    //             // 删除成功，标记为已删除
+                                    //             entry.deleted = true;
+                                    //             needs_render = true;
+                                    //         }
+                                    //         Err(e) => {
+                                    //             // 删除失败，记录错误
+                                    //             needs_render = true;
+                                    //         }
+                                    //     }
+                                    // }
                                 }
                             }
                         }
@@ -377,14 +416,25 @@ fn render_scan_ui(
             let items: Vec<ListItem> = entries
                 .iter()
                 .enumerate()
-                .map(|(i, e)| {
+                .map(|(_i, e)| {
+                    log::info!("删除{:?}", e);
                     let path_display = if e.path.len() > path_width as usize {
                         format!("...{}", &e.path[e.path.len() - path_width as usize + 3..])
                     } else {
                         e.path.clone()
                     };
-
+                    // 根据删除状态添加不同的前缀
+                    let status_prefix = match e.delete_status {
+                        DeleteStatus::NotDeleted => Span::raw(""),
+                        DeleteStatus::Deleting => {
+                            Span::styled("[DELETING] ", Style::default().fg(Color::Yellow))
+                        }
+                        DeleteStatus::Deleted => {
+                            Span::styled("[DELETED] ", Style::default().fg(Color::Green))
+                        }
+                    };
                     let line = Line::from(vec![
+                        status_prefix,
                         Span::raw(format!(
                             "{:<width$}",
                             path_display,
@@ -405,13 +455,7 @@ fn render_scan_ui(
                             Style::default().fg(Color::Cyan),
                         ),
                     ]);
-
-                    let mut item = ListItem::new(line);
-                    // 选中项高亮
-                    // if i == selected_index {
-                    //     item = item.style(Style::default().bg(Color::Yellow).fg(Color::Black));
-                    // }
-                    item
+                    ListItem::new(line)
                 })
                 .collect();
 
@@ -421,13 +465,8 @@ fn render_scan_ui(
                         .borders(Borders::ALL)
                         .title(format!("扫描结果 ({} items)", entries.len())),
                 )
-                .highlight_style(Style::default().bg(Color::Yellow).fg(Color::Black))
-                .highlight_symbol(">> ");
-
-            // 使用 StatefulList 或手动控制选中状态
-            // let mut state = ListState::default();
-            // state.select(Some(selected_index));
-
+                .highlight_style(Style::default().bg(Color::Yellow).fg(Color::Black));
+            // .highlight_symbol(">> ");
             frame.render_stateful_widget(list, list_area, list_state);
         }
     }
@@ -482,71 +521,6 @@ fn render_scan_ui(
         )
         .alignment(Alignment::Left);
     frame.render_widget(hint, bottom_layout[1]);
-}
-// 渲染结果列表
-fn render_results(frame: &mut Frame, list_state: &mut ListState, entries: &[FileEntry]) {
-    // 列表区域
-    let constraints = [
-        Constraint::Fill(1),   // 列表
-        Constraint::Length(1), // 版本号
-    ];
-    let layout = Layout::vertical(constraints).spacing(0);
-    let [list_area, version_area] = frame.area().layout(&layout);
-
-    // 渲染列表
-    render_list(frame, list_area, list_state, entries);
-
-    // 渲染版本号
-    let version_line = Line::from(vec![Span::styled(
-        "0.12.2",
-        Style::default().fg(Color::Gray),
-    )]);
-    frame.render_widget(version_line, version_area);
-}
-
-/// Render a list.
-pub fn render_list(
-    frame: &mut Frame,
-    area: Rect,
-    list_state: &mut ListState,
-    entries: &[FileEntry],
-) {
-    // 计算路径列的宽度
-    let max_path_len = entries.iter().map(|e| e.path.len()).max().unwrap_or(0);
-    let path_width = max_path_len.min(80); // 限制最大宽度为80
-
-    let items: Vec<Line> = entries
-        .iter()
-        .map(|entry| {
-            // 假设每个条目都有最后修改时间（这里用占位符，实际应该从文件系统获取）
-            // 在实际应用中，应该从entry中获取last_modified字段
-            let last_modified = "28d"; // 占位符
-            let size = &entry.size_display;
-            let path = &entry.path;
-
-            Line::from(vec![
-                // 路径
-                Span::styled(
-                    format!("{:<width$} ", path, width = path_width),
-                    Style::default().fg(Color::White),
-                ),
-                // 最后修改时间
-                Span::styled(
-                    format!("{:<8} ", last_modified),
-                    Style::default().fg(Color::Green),
-                ),
-                // 大小
-                Span::styled(format!("{:>10} ", size), Style::default().fg(Color::Cyan)),
-            ])
-        })
-        .collect();
-
-    let list = List::new(items)
-        .style(Color::White)
-        .highlight_style(Style::default().bg(Color::DarkGray).fg(Color::White))
-        .highlight_symbol("> ");
-
-    frame.render_stateful_widget(list, area, list_state);
 }
 
 #[cfg(test)]
