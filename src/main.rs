@@ -113,8 +113,14 @@ fn run_scan_ui(
                 && matches!(current_status, ScanStatus::Completed { .. })
             {
                 terminal.draw(|frame| {
-                    render_scan_ui(frame, &current_status, frame_count, start_time, &entries, 0);
-                    // render_results(frame, &mut list_state, &entries);
+                    render_scan_ui(
+                        frame,
+                        &current_status,
+                        frame_count,
+                        start_time,
+                        &entries,
+                        &mut list_state,
+                    );
                 })?;
             }
         }
@@ -129,7 +135,14 @@ fn run_scan_ui(
         // 如果有新条目且状态是扫描中，立即更新UI
         if has_new_entries && matches!(current_status, ScanStatus::Scanning { .. }) {
             terminal.draw(|frame| {
-                render_scan_ui(frame, &current_status, frame_count, start_time, &entries, 0);
+                render_scan_ui(
+                    frame,
+                    &current_status,
+                    frame_count,
+                    start_time,
+                    &entries,
+                    &mut list_state,
+                );
             })?;
         }
 
@@ -144,12 +157,19 @@ fn run_scan_ui(
 
             // 渲染UI
             terminal.draw(|frame| {
-                render_scan_ui(frame, &current_status, frame_count, start_time, &entries, 0);
+                render_scan_ui(
+                    frame,
+                    &current_status,
+                    frame_count,
+                    start_time,
+                    &entries,
+                    &mut list_state,
+                );
 
                 // 只有在扫描完成后才渲染结果列表
-                if matches!(current_status, ScanStatus::Completed { .. }) {
-                    render_results(frame, &mut list_state, &entries);
-                }
+                // if matches!(current_status, ScanStatus::Completed { .. }) {
+                //     render_results(frame, &mut list_state, &entries);
+                // }
             })?;
         }
 
@@ -157,26 +177,69 @@ fn run_scan_ui(
         if event::poll(poll_timeout)? {
             if let event::Event::Key(key) = event::read()? {
                 if key.kind == KeyEventKind::Press {
+                    let mut needs_render = false;
                     match key.code {
                         KeyCode::Char('j') | KeyCode::Down => {
-                            list_state.select_next();
-                            log::info!(
-                                "选中项: {:?}",
-                                entries[list_state.selected().unwrap()].path
-                            );
+                            // 检查是否有条目
+                            if !entries.is_empty() {
+                                list_state.select_next();
+                                needs_render = true;
+                                // 确保选中索引有效
+                                // if let Some(selected) = list_state.selected() {
+                                //     if selected >= entries.len() {
+                                //         list_state.select(Some(entries.len() - 1));
+                                //     }
+                                //     log::info!("选中项: {:?}", entries[selected].path);
+                                // }
+                            }
                         }
-                        KeyCode::Char('k') | KeyCode::Up => list_state.select_previous(),
+                        KeyCode::Char('k') | KeyCode::Up => {
+                            // 检查是否有条目
+                            if !entries.is_empty() {
+                                list_state.select_previous();
+                                needs_render = true;
+                                // 确保选中索引有效
+                                if let Some(selected) = list_state.selected() {
+                                    log::info!("选中项: {:?}", entries[selected].path);
+                                }
+                            }
+                        }
                         KeyCode::Char(' ') => {
                             // 空格键删除选中项
                             if let Some(selected) = list_state.selected() {
                                 if selected < entries.len() {
                                     log::info!("删除选中项: {:?}", entries[selected].path);
                                     // 这里可以添加实际的删除逻辑
+                                    // 删除项
+                                    entries.remove(selected);
+                                    needs_render = true;
+
+                                    // 更新选中索引
+                                    if entries.is_empty() {
+                                        list_state.select(None);
+                                    } else if selected >= entries.len() {
+                                        list_state.select(Some(entries.len() - 1));
+                                    } else {
+                                        // 保持当前选中索引
+                                    }
                                 }
                             }
                         }
                         KeyCode::Char('q') | KeyCode::Esc => break Ok(entries),
                         _ => {}
+                    }
+                    // 如果需要渲染，立即更新UI
+                    if needs_render {
+                        terminal.draw(|frame| {
+                            render_scan_ui(
+                                frame,
+                                &current_status,
+                                frame_count,
+                                start_time,
+                                &entries,
+                                &mut list_state,
+                            );
+                        })?;
                     }
                 }
             }
@@ -191,7 +254,7 @@ fn render_scan_ui(
     frame_count: u64,
     start_time: Instant,
     entries: &[FileEntry],
-    selected_index: usize, // 当前选中项索引
+    list_state: &mut ListState,
 ) {
     // 计算总大小
     let total_size: u64 = entries.iter().map(|e| e.size_raw).sum();
@@ -345,9 +408,9 @@ fn render_scan_ui(
 
                     let mut item = ListItem::new(line);
                     // 选中项高亮
-                    if i == selected_index {
-                        item = item.style(Style::default().bg(Color::Yellow).fg(Color::Black));
-                    }
+                    // if i == selected_index {
+                    //     item = item.style(Style::default().bg(Color::Yellow).fg(Color::Black));
+                    // }
                     item
                 })
                 .collect();
@@ -362,10 +425,10 @@ fn render_scan_ui(
                 .highlight_symbol(">> ");
 
             // 使用 StatefulList 或手动控制选中状态
-            let mut state = ListState::default();
-            state.select(Some(selected_index));
+            // let mut state = ListState::default();
+            // state.select(Some(selected_index));
 
-            frame.render_stateful_widget(list, list_area, &mut state);
+            frame.render_stateful_widget(list, list_area, list_state);
         }
     }
 
