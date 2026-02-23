@@ -13,7 +13,7 @@ use std::{fs, thread};
 
 use crossterm::event::{self, KeyCode, KeyEventKind};
 use models::Cli;
-use ratatui::layout::{Alignment, Constraint, Direction, Layout, Rect};
+use ratatui::layout::{Alignment, Constraint, Direction, Layout};
 use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Span, Text};
 use ratatui::widgets::{Block, Borders, List, ListItem, ListState, Paragraph, Wrap};
@@ -329,12 +329,12 @@ fn render_scan_ui(
 
     let logo = Paragraph::new(
         r#"
-    ____             __ __ _      __
-   / __ \__  _______/ //_/(_)____/ /_
-  / /_/ / / / / ___/ ,<  / / ___/ __ \
- / _, _/ /_/ (__  ) /| |/ (__  ) / / /
-/_/ |_|\__,_/____/_/ |_/_/____/_/ /_/
-                                     0.1.0"#,
+                ____            __ __ __    ________      __
+            / __ \__  ______/ // //_/___/ / ____/_____/ /_
+            / /_/ / / / / __  / ,<  / __  / /   / ___/ __/
+            / _, _/ /_/ / /_/ / /| |/ /_/ / /___/ /  / /_  
+            /_/ |_|\__,_/\__,_/_/ |_/\__,_/\____/_/   \__/  
+                                                        0.1.0"#,
     )
     .style(Style::default().fg(Color::Cyan));
     frame.render_widget(logo, header_layout[0]);
@@ -413,6 +413,57 @@ fn render_scan_ui(
             frame.render_widget(path_text, scan_layout[2]);
         }
         ScanStatus::Completed { .. } => {
+            // ========== 底部栏（表头 + 操作提示）==========
+            let bottom_layout = Layout::default()
+                .direction(Direction::Vertical)
+                .constraints([
+                    Constraint::Length(1), // 表头
+                    Constraint::Length(1), // 操作提示
+                ])
+                .split(main_layout[2]);
+
+            // 表头（与列表列宽对齐）
+            let list_width = main_layout[1].width.saturating_sub(2); // 减去边框
+            let path_width = list_width.saturating_sub(30);
+            let last_mod_width = 10;
+            let size_width = 12;
+
+            let header_line = Line::from(vec![
+                Span::styled(
+                    format!("{:<width$}", "Path", width = path_width as usize),
+                    Style::default()
+                        .fg(Color::White)
+                        .add_modifier(Modifier::BOLD),
+                ),
+                Span::raw("  "),
+                Span::styled(
+                    format!("{:>width$}", "Last_mod", width = last_mod_width),
+                    Style::default()
+                        .fg(Color::White)
+                        .add_modifier(Modifier::BOLD),
+                ),
+                Span::raw("  "),
+                Span::styled(
+                    format!("{:>width$}", "Size", width = size_width),
+                    Style::default()
+                        .fg(Color::White)
+                        .add_modifier(Modifier::BOLD),
+                ),
+            ]);
+
+            let header =
+                Paragraph::new(header_line).style(Style::default().bg(Color::Rgb(60, 60, 60)));
+            frame.render_widget(header, bottom_layout[0]);
+
+            // 操作提示（橙色背景）
+            let hint = Paragraph::new("CURSORS for select - SPACE to delete")
+                .style(
+                    Style::default()
+                        .fg(Color::Black)
+                        .bg(Color::Rgb(255, 140, 0)),
+                )
+                .alignment(Alignment::Left);
+            frame.render_widget(hint, bottom_layout[1]);
             // 扫描完成：显示可操作的列表
             let list_area = main_layout[1];
 
@@ -478,57 +529,6 @@ fn render_scan_ui(
             frame.render_stateful_widget(list, list_area, list_state);
         }
     }
-
-    // ========== 底部栏（表头 + 操作提示）==========
-    let bottom_layout = Layout::default()
-        .direction(Direction::Vertical)
-        .constraints([
-            Constraint::Length(1), // 表头
-            Constraint::Length(1), // 操作提示
-        ])
-        .split(main_layout[2]);
-
-    // 表头（与列表列宽对齐）
-    let list_width = main_layout[1].width.saturating_sub(2); // 减去边框
-    let path_width = list_width.saturating_sub(30);
-    let last_mod_width = 10;
-    let size_width = 12;
-
-    let header_line = Line::from(vec![
-        Span::styled(
-            format!("{:<width$}", "Path", width = path_width as usize),
-            Style::default()
-                .fg(Color::White)
-                .add_modifier(Modifier::BOLD),
-        ),
-        Span::raw("  "),
-        Span::styled(
-            format!("{:>width$}", "Last_mod", width = last_mod_width),
-            Style::default()
-                .fg(Color::White)
-                .add_modifier(Modifier::BOLD),
-        ),
-        Span::raw("  "),
-        Span::styled(
-            format!("{:>width$}", "Size", width = size_width),
-            Style::default()
-                .fg(Color::White)
-                .add_modifier(Modifier::BOLD),
-        ),
-    ]);
-
-    let header = Paragraph::new(header_line).style(Style::default().bg(Color::Rgb(60, 60, 60)));
-    frame.render_widget(header, bottom_layout[0]);
-
-    // 操作提示（橙色背景）
-    let hint = Paragraph::new("CURSORS for select - SPACE to delete")
-        .style(
-            Style::default()
-                .fg(Color::Black)
-                .bg(Color::Rgb(255, 140, 0)),
-        )
-        .alignment(Alignment::Left);
-    frame.render_widget(hint, bottom_layout[1]);
 }
 
 #[cfg(test)]
