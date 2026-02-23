@@ -93,7 +93,8 @@ fn run_scan_ui(
     // 存储扫描结果
     let mut entries = Vec::new();
     let mut list_state = ListState::default().with_selected(Some(0));
-
+    // 添加删除结果通道
+    let (delete_tx, delete_rx) = mpsc::channel::<(usize, Result<(), String>)>();
     // 动画帧计数器
     let mut frame_count = 0;
     let start_time = Instant::now();
@@ -131,9 +132,41 @@ fn run_scan_ui(
             entries.push(entry);
             has_new_entries = true;
         }
-
         // 如果有新条目且状态是扫描中，立即更新UI
         if has_new_entries && matches!(current_status, ScanStatus::Scanning { .. }) {
+            terminal.draw(|frame| {
+                render_scan_ui(
+                    frame,
+                    &current_status,
+                    frame_count,
+                    start_time,
+                    &entries,
+                    &mut list_state,
+                );
+            })?;
+        }
+        // 检查是否有删除结果
+        let mut has_delete_results = false;
+        while let Ok((index, result)) = delete_rx.try_recv() {
+            has_delete_results = true;
+            if let Some(entry) = entries.get_mut(index) {
+                match result {
+                    Ok(_) => {
+                        // 删除成功，标记为已删除
+                        entry.delete_status = DeleteStatus::Deleted;
+                        log::info!("删除成功: {:?}", entry.path);
+                    }
+                    Err(e) => {
+                        // 删除失败，恢复为未删除状态
+                        entry.delete_status = DeleteStatus::NotDeleted;
+                        log::info!("删除失败: {:?}", e);
+                    }
+                }
+            }
+        }
+        // 如果有新条目且状态是扫描中，立即更新UI
+        if has_delete_results {
+            log::info!("删除成功之后进行更新");
             terminal.draw(|frame| {
                 render_scan_ui(
                     frame,
@@ -173,20 +206,12 @@ fn run_scan_ui(
             if let event::Event::Key(key) = event::read()? {
                 if key.kind == KeyEventKind::Press {
                     let mut needs_render = false;
-                    let mut delete_success = false;
                     match key.code {
                         KeyCode::Char('j') | KeyCode::Down => {
                             // 检查是否有条目
                             if !entries.is_empty() {
                                 list_state.select_next();
                                 needs_render = true;
-                                // 确保选中索引有效
-                                // if let Some(selected) = list_state.selected() {
-                                //     if selected >= entries.len() {
-                                //         list_state.select(Some(entries.len() - 1));
-                                //     }
-                                //     log::info!("选中项: {:?}", entries[selected].path);
-                                // }
                             }
                         }
                         KeyCode::Char('k') | KeyCode::Up => {
@@ -212,21 +237,25 @@ fn run_scan_ui(
                                             // 未删除，执行删除操作
                                             entry.delete_status = DeleteStatus::Deleting;
                                             needs_render = true;
-                                            log::info!("开始删除: {:?}", entry.path);
-                                            // 实际执行删除操作
-                                            match fs::remove_dir_all(&entry.path) {
-                                                Ok(_) => {
-                                                    // 删除成功，标记为已删除
-                                                    entry.delete_status = DeleteStatus::Deleted;
-                                                    needs_render = true;
+                                            // 克隆必要的值，用于后台线程
+                                            let path = entry.path.clone();
+                                            let index = selected;
+                                            let delete_tx_clone = delete_tx.clone();
+                                            // 在后台线程中执行删除操作
+                                            thread::spawn(move || {
+                                                match fs::remove_dir_all(&path) {
+                                                    Ok(_) => {
+                                                        // 删除成功
+                                                        let _ =
+                                                            delete_tx_clone.send((index, Ok(())));
+                                                    }
+                                                    Err(e) => {
+                                                        // 删除失败
+                                                        let _ = delete_tx_clone
+                                                            .send((index, Err(e.to_string())));
+                                                    }
                                                 }
-                                                Err(e) => {
-                                                    // 删除失败，恢复为未删除状态
-                                                    entry.delete_status = DeleteStatus::NotDeleted;
-                                                    // delete_error = Some(format!("删除失败: {}", e));
-                                                    needs_render = true;
-                                                }
-                                            }
+                                            });
                                         }
                                         DeleteStatus::Deleting => {
                                             entry.delete_status = DeleteStatus::Deleting;
@@ -240,27 +269,6 @@ fn run_scan_ui(
                                             needs_render = true;
                                         }
                                     }
-                                    // needs_render = true;
-                                    // // 检查是否已经删除
-                                    // if entry.deleted {
-                                    //     // 如果已经删除，则恢复
-                                    //     log::info!("恢复已删除项: {:?}", entry.path);
-                                    //     entry.deleted = false;
-                                    //     needs_render = true;
-                                    // } else {
-                                    //     // 实际执行删除操作
-                                    //     match fs::remove_dir_all(&entry.path) {
-                                    //         Ok(_) => {
-                                    //             // 删除成功，标记为已删除
-                                    //             entry.deleted = true;
-                                    //             needs_render = true;
-                                    //         }
-                                    //         Err(e) => {
-                                    //             // 删除失败，记录错误
-                                    //             needs_render = true;
-                                    //         }
-                                    //     }
-                                    // }
                                 }
                             }
                         }
@@ -427,7 +435,7 @@ fn render_scan_ui(
                     let status_prefix = match e.delete_status {
                         DeleteStatus::NotDeleted => Span::raw(""),
                         DeleteStatus::Deleting => {
-                            Span::styled("[DELETING] ", Style::default().fg(Color::Yellow))
+                            Span::styled("[...DELETING...] ", Style::default().fg(Color::Yellow))
                         }
                         DeleteStatus::Deleted => {
                             Span::styled("[DELETED] ", Style::default().fg(Color::Green))
