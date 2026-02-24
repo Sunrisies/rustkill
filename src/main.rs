@@ -315,9 +315,8 @@ fn render_scan_ui(
         .direction(Direction::Vertical)
         .margin(1)
         .constraints([
-            Constraint::Length(9), // 头部：Logo + 统计
+            Constraint::Length(4), // 头部：Logo + 统计
             Constraint::Fill(1),   // 中部：扫描进度 或 结果列表
-            Constraint::Length(2), // 底部：表头 + 操作提示
         ])
         .split(frame.area());
 
@@ -413,15 +412,33 @@ fn render_scan_ui(
             frame.render_widget(path_text, scan_layout[2]);
         }
         ScanStatus::Completed { .. } => {
-            // ========== 底部栏（表头 + 操作提示）==========
-            let bottom_layout = Layout::default()
+            let list_layout = Layout::default()
+                .direction(Direction::Vertical)
+                .margin(0)
+                .constraints([
+                    Constraint::Length(1), // 头部：Logo + 统计
+                    Constraint::Fill(1),   // 中部：扫描进度 或 结果列表
+                                           // Constraint::Length(2), // 底部：表头 + 操作提示
+                ]);
+            // 2. 创建带边框的块
+            let list_block = Block::default()
+                .borders(Borders::ALL)
+                .title(format!("扫描结果 ({} items)", entries.len()));
+
+            // 3. 先渲染边框块（作为背景）
+            frame.render_widget(list_block.clone(), main_layout[1]);
+
+            // 4. 在边框内部渲染内容（考虑边框占用的空间）
+            let inner_area = list_block.inner(main_layout[1]); // 获取内部可用区域
+
+            // 5. 在 inner_area 内重新分割布局
+            let inner_layout = Layout::default()
                 .direction(Direction::Vertical)
                 .constraints([
                     Constraint::Length(1), // 表头
-                    Constraint::Length(1), // 操作提示
+                    Constraint::Fill(1),   // 列表
                 ])
-                .split(main_layout[2]);
-
+                .split(inner_area);
             // 表头（与列表列宽对齐）
             let list_width = main_layout[1].width.saturating_sub(2); // 减去边框
             let path_width = list_width.saturating_sub(30);
@@ -451,24 +468,14 @@ fn render_scan_ui(
                 ),
             ]);
 
-            let header =
-                Paragraph::new(header_line).style(Style::default().bg(Color::Rgb(60, 60, 60)));
-            frame.render_widget(header, bottom_layout[0]);
+            let header = Paragraph::new(header_line).style(Style::default());
+            frame.render_widget(header, inner_layout[0]);
 
-            // 操作提示（橙色背景）
-            let hint = Paragraph::new("CURSORS for select - SPACE to delete")
-                .style(
-                    Style::default()
-                        .fg(Color::Black)
-                        .bg(Color::Rgb(255, 140, 0)),
-                )
-                .alignment(Alignment::Left);
-            frame.render_widget(hint, bottom_layout[1]);
             // 扫描完成：显示可操作的列表
-            let list_area = main_layout[1];
+            let list_area = inner_layout[1];
 
             // 列宽定义（与底部表头对齐）
-            let path_width = list_area.width.saturating_sub(30); // 剩余空间给 Path
+            let path_width = list_area.width.saturating_sub(10); // 剩余空间给 Path
             let last_mod_width = 10;
             let size_width = 12;
 
@@ -519,11 +526,6 @@ fn render_scan_ui(
                 .collect();
 
             let list = List::new(items)
-                .block(
-                    Block::default()
-                        .borders(Borders::ALL)
-                        .title(format!("扫描结果 ({} items)", entries.len())),
-                )
                 .highlight_style(Style::default().bg(Color::Yellow).fg(Color::Black));
             // .highlight_symbol(">> ");
             frame.render_stateful_widget(list, list_area, list_state);
