@@ -412,26 +412,14 @@ fn render_scan_ui(
             frame.render_widget(path_text, scan_layout[2]);
         }
         ScanStatus::Completed { .. } => {
-            let list_layout = Layout::default()
-                .direction(Direction::Vertical)
-                .margin(0)
-                .constraints([
-                    Constraint::Length(1), // 头部：Logo + 统计
-                    Constraint::Fill(1),   // 中部：扫描进度 或 结果列表
-                                           // Constraint::Length(2), // 底部：表头 + 操作提示
-                ]);
-            // 2. 创建带边框的块
             let list_block = Block::default()
                 .borders(Borders::ALL)
                 .title(format!("扫描结果 ({} items)", entries.len()));
 
-            // 3. 先渲染边框块（作为背景）
             frame.render_widget(list_block.clone(), main_layout[1]);
 
-            // 4. 在边框内部渲染内容（考虑边框占用的空间）
             let inner_area = list_block.inner(main_layout[1]); // 获取内部可用区域
 
-            // 5. 在 inner_area 内重新分割布局
             let inner_layout = Layout::default()
                 .direction(Direction::Vertical)
                 .constraints([
@@ -527,7 +515,6 @@ fn render_scan_ui(
 
             let list = List::new(items)
                 .highlight_style(Style::default().bg(Color::Yellow).fg(Color::Black));
-            // .highlight_symbol(">> ");
             frame.render_stateful_widget(list, list_area, list_state);
         }
     }
